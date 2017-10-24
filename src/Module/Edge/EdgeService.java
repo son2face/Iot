@@ -5,20 +5,21 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import org.hibernate.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 
 /**
  * Created by Son on 6/15/2017.
  */
-public class EdgeService {
+public class EdgeService extends AbstractBinder {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -37,6 +38,11 @@ public class EdgeService {
 
     public static void setFactory(SessionFactory factory) {
         EdgeService.factory = factory;
+    }
+
+    @Override
+    protected void configure() {
+        bind(EdgeService.class).to(EdgeService.class);
     }
 
     public EdgeModel get(int id) {
@@ -72,6 +78,24 @@ public class EdgeService {
         return null;
     }
 
+    public EdgeModel create(EdgeModel edgeModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            int id = Integer.valueOf(String.valueOf(session.save(edgeModel.toEntity())));
+            tx.commit();
+            EdgeModel result = get(id);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
     public EdgeModel update(int edgeId, Double startX, Double startY, Double endX, Double endY) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -91,6 +115,23 @@ public class EdgeService {
         return null;
     }
 
+    public EdgeModel update(int edgeId, EdgeModel edgeModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(edgeModel.toEntity());
+            tx.commit();
+            EdgeModel result = get(edgeId);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
     public boolean delete(int id) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -110,7 +151,7 @@ public class EdgeService {
         return false;
     }
 
-    //    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
+//    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
 //        Session session = factory.openSession();
 //        Criteria criteria = session.createCriteria(SearchLegalRelationshipModel.class, "legalrelationship");
 //        criteria = searchLegalRelationshipModel.apply(criteria);

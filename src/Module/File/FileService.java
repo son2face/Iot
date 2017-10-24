@@ -5,6 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,7 +20,7 @@ import java.sql.Timestamp;
 /**
  * Created by Son on 6/15/2017.
  */
-public class FileService {
+public class FileService extends AbstractBinder {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -38,6 +39,11 @@ public class FileService {
 
     public static void setFactory(SessionFactory factory) {
         FileService.factory = factory;
+    }
+
+    @Override
+    protected void configure() {
+        bind(FileService.class).to(FileService.class);
     }
 
     public FileModel get(int id) {

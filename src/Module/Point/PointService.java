@@ -5,6 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,7 +19,7 @@ import javax.persistence.criteria.Root;
 /**
  * Created by Son on 6/15/2017.
  */
-public class PointService {
+public class PointService extends AbstractBinder {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -37,6 +38,11 @@ public class PointService {
 
     public static void setFactory(SessionFactory factory) {
         PointService.factory = factory;
+    }
+
+    @Override
+    protected void configure() {
+        bind(PointService.class).to(PointService.class);
     }
 
     public PointModel get(int id) {

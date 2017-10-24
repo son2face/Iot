@@ -5,8 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
-import Module.Shape.ShapeEntity;
-import Module.Shape.ShapeModel;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +19,7 @@ import javax.persistence.criteria.Root;
 /**
  * Created by Son on 6/15/2017.
  */
-public class ShapeService {
+public class ShapeService extends AbstractBinder {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -39,6 +38,11 @@ public class ShapeService {
 
     public static void setFactory(SessionFactory factory) {
         ShapeService.factory = factory;
+    }
+
+    @Override
+    protected void configure() {
+        bind(ShapeService.class).to(ShapeService.class);
     }
 
     public ShapeModel get(int id) {

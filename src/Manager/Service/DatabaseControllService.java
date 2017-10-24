@@ -10,19 +10,25 @@ import Module.Point.PointEntity;
 import Module.Problem.ProblemEntity;
 import Module.Shape.ShapeEntity;
 import Module.User.UserEntity;
+import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.hibernate.cfg.Configuration;
 
 /**
  * Created by Son on 5/12/2017.
  */
 
-public class DatabaseControllService implements IDatabaseControllService {
+public class DatabaseControllService extends AbstractBinder implements IDatabaseControllService {
     public boolean setActive(int id) {
         if (id >= 0 && id < DatabaseEntity.getDatabaseModels().size()) {
             DatabaseEntity.setActive(id);
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected void configure() {
+        bind(DatabaseControllService.class).to(DatabaseControllService.class);
     }
 
     public Configuration createConfiguration(DatabaseModel databaseModel) {

@@ -2,8 +2,6 @@ package Manager.Controller;
 
 import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
-import Manager.Service.DatabaseControllService;
-import Manager.Service.DatabaseService;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.json.simple.JSONObject;
 
@@ -18,9 +16,9 @@ public class DatabaseController {
     private IDatabaseService databaseService;
     private IDatabaseControllService databaseControllService;
 
-    public DatabaseController() {
-        databaseService = new DatabaseService();
-        databaseControllService = new DatabaseControllService();
+    public DatabaseController(IDatabaseService databaseService, IDatabaseControllService databaseControllService) {
+        this.databaseService = databaseService;
+        this.databaseControllService = databaseControllService;
     }
 
     @GET
