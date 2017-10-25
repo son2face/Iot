@@ -5,6 +5,7 @@ import Manager.Interface.IDatabaseService;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.json.simple.JSONObject;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
@@ -12,13 +13,12 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/managers/database")
 public class DatabaseController {
-
+    @Inject
     private IDatabaseService databaseService;
+    @Inject
     private IDatabaseControllService databaseControllService;
 
-    public DatabaseController(IDatabaseService databaseService, IDatabaseControllService databaseControllService) {
-        this.databaseService = databaseService;
-        this.databaseControllService = databaseControllService;
+    public DatabaseController() {
     }
 
     @GET

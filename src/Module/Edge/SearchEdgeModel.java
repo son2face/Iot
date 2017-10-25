@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "edge", schema = "intelligent", catalog = "")
-public class SearchEdgeEntity {
+public class SearchEdgeModel {
     private int edgeId;
     private Double startX;
     private Double startY;
@@ -66,7 +66,7 @@ public class SearchEdgeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        SearchEdgeEntity that = (SearchEdgeEntity) o;
+        SearchEdgeModel that = (SearchEdgeModel) o;
 
         if (edgeId != that.edgeId) return false;
         if (startX != null ? !startX.equals(that.startX) : that.startX != null) return false;

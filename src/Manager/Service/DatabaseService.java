@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Son on 4/28/2017.
  */
-public class DatabaseService extends AbstractBinder implements IDatabaseService {
+public class DatabaseService  implements IDatabaseService {
 
     public boolean create(String url, String name, String password, String dbName, int type) {
         DatabaseEntity x = new DatabaseEntity(new DatabaseModel(0, type, url, dbName, name, password));
@@ -20,10 +20,7 @@ public class DatabaseService extends AbstractBinder implements IDatabaseService 
         return true;
     }
 
-    @Override
-    protected void configure() {
-        bind(DatabaseService.class).to(DatabaseService.class);
-    }
+
 
     public boolean update(int id, String url, String name, String password, String dbName, int type) {
         DatabaseEntity x = new DatabaseEntity();

@@ -1,23 +1,25 @@
 package Module.Edge;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
-@Path("/Managers/Databases")
+@Path("/Edges")
 public class EdgeController {
-
+    @Inject
     private EdgeService edgeService;
 
-    public EdgeController(EdgeService edgeService) {
-        this.edgeService = edgeService;
+    public EdgeController() {
+
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("")
-    public EdgeModel get(EdgeModel edgeModel) {
-        return edgeService.create(edgeModel);
+    public List<EdgeModel> get(SearchEdgeModel searchEdgeModel) {
+        return edgeService.get(searchEdgeModel);
     }
 
     @GET
@@ -30,7 +32,7 @@ public class EdgeController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
     @Path("")
     public EdgeModel create(EdgeModel edgeModel) {
         return edgeService.create(edgeModel);

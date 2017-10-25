@@ -19,7 +19,7 @@ import javax.persistence.criteria.Root;
 /**
  * Created by Son on 6/15/2017.
  */
-public class PointService extends AbstractBinder {
+public class PointService {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -40,12 +40,7 @@ public class PointService extends AbstractBinder {
         PointService.factory = factory;
     }
 
-    @Override
-    protected void configure() {
-        bind(PointService.class).to(PointService.class);
-    }
-
-    public PointModel get(int id) {
+      public PointModel get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<PointEntity> criteria = builder.createQuery(PointEntity.class);

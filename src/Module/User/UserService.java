@@ -19,7 +19,7 @@ import javax.persistence.criteria.Root;
 /**
  * Created by Son on 6/15/2017.
  */
-public class UserService extends AbstractBinder {
+public class UserService{
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -40,10 +40,7 @@ public class UserService extends AbstractBinder {
         UserService.factory = factory;
     }
 
-    @Override
-    protected void configure() {
-        bind(UserService.class).to(UserService.class);
-    }
+
 
     public UserModel get(int id) {
         Session session = factory.openSession();

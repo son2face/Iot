@@ -20,7 +20,7 @@ import java.sql.Timestamp;
 /**
  * Created by Son on 6/15/2017.
  */
-public class FileService extends AbstractBinder {
+public class FileService  {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -41,10 +41,7 @@ public class FileService extends AbstractBinder {
         FileService.factory = factory;
     }
 
-    @Override
-    protected void configure() {
-        bind(FileService.class).to(FileService.class);
-    }
+
 
     public FileModel get(int id) {
         Session session = factory.openSession();

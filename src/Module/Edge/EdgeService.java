@@ -5,6 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
+import com.google.common.collect.Lists;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.hibernate.*;
 import org.json.simple.JSONArray;
@@ -15,11 +16,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Son on 6/15/2017.
  */
-public class EdgeService extends AbstractBinder {
+public class EdgeService {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -40,10 +42,7 @@ public class EdgeService extends AbstractBinder {
         EdgeService.factory = factory;
     }
 
-    @Override
-    protected void configure() {
-        bind(EdgeService.class).to(EdgeService.class);
-    }
+
 
     public EdgeModel get(int id) {
         Session session = factory.openSession();
@@ -151,23 +150,16 @@ public class EdgeService extends AbstractBinder {
         return false;
     }
 
-//    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
-//        Session session = factory.openSession();
-//        Criteria criteria = session.createCriteria(SearchLegalRelationshipModel.class, "legalrelationship");
-//        criteria = searchLegalRelationshipModel.apply(criteria);
-//        List<LegalrelationshipEntity> legalrelationshipEntities = criteria.list();
-//        List<LegalRelationshipModel> legalRelationshipModels = new ArrayList<>();
-//        legalrelationshipEntities.forEach(x -> {
-//            legalRelationshipModels.add(new LegalRelationshipModel(x));
-//        });
-//        JSONObject obj = new JSONObject();
-//        int statusCode = 200;
-//        JSONArray data = new JSONArray();
-//        for (LegalRelationshipModel x : legalRelationshipModels) {
-//            data.add(x.toJsonObject());
-//        }
-//        obj.put("status", statusCode);
-//        obj.put("data", data);
-//        return obj;
-//    }
+    public List<EdgeModel> get(SearchEdgeModel searchEdgeModel) {
+        Session session = factory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<EdgeEntity> criteria = builder.createQuery(EdgeEntity.class);
+        Root<EdgeEntity> EdgeEntities = criteria.from(EdgeEntity.class);
+        try {
+            List<EdgeEntity> edgeEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(edgeEntities, edgeEntity -> new EdgeModel(edgeEntity));
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

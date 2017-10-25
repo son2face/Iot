@@ -19,7 +19,7 @@ import javax.persistence.criteria.Root;
 /**
  * Created by Son on 6/15/2017.
  */
-public class ShapeService extends AbstractBinder {
+public class ShapeService{
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -40,10 +40,6 @@ public class ShapeService extends AbstractBinder {
         ShapeService.factory = factory;
     }
 
-    @Override
-    protected void configure() {
-        bind(ShapeService.class).to(ShapeService.class);
-    }
 
     public ShapeModel get(int id) {
         Session session = factory.openSession();
