@@ -29,9 +29,9 @@
     <listener>
         <listener-class>InitClass</listener-class>
     </listener>
-
     <servlet-mapping>
         <servlet-name>Jersey REST Service</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 </web-app>
+

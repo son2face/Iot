@@ -1,5 +1,7 @@
 package Module.Problem;
 
+import Module.File.FileEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,6 +9,7 @@ import javax.persistence.*;
 public class ProblemEntity {
     private int problemId;
     private String status;
+    private FileEntity fileByFileId;
 
     @Id
     @Column(name = "problemId", nullable = false)
@@ -46,5 +49,15 @@ public class ProblemEntity {
         int result = problemId;
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "fileId", referencedColumnName = "fileId")
+    public FileEntity getFileByFileId() {
+        return fileByFileId;
+    }
+
+    public void setFileByFileId(FileEntity fileByFileId) {
+        this.fileByFileId = fileByFileId;
     }
 }

@@ -1,5 +1,7 @@
 package Module.Shape;
 
+import Module.Problem.ProblemEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,6 +9,7 @@ import javax.persistence.*;
 public class ShapeEntity {
     private int shapeId;
     private Integer level;
+    private ProblemEntity problemByProblemId;
 
     @Id
     @Column(name = "shapeId", nullable = false)
@@ -46,5 +49,15 @@ public class ShapeEntity {
         int result = shapeId;
         result = 31 * result + (level != null ? level.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "problemId", referencedColumnName = "problemId")
+    public ProblemEntity getProblemByProblemId() {
+        return problemByProblemId;
+    }
+
+    public void setProblemByProblemId(ProblemEntity problemByProblemId) {
+        this.problemByProblemId = problemByProblemId;
     }
 }

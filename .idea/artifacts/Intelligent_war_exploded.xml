@@ -91,6 +91,9 @@
         </element>
         <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
       </element>
+      <element id="directory" name="Angular4">
+        <element id="dir-copy" path="$PROJECT_DIR$/Angular4" />
+      </element>
     </root>
   </artifact>
 </component>
