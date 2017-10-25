@@ -5,7 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import com.google.common.collect.Lists;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,11 +16,12 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by Son on 6/15/2017.
  */
-public class FileService  {
+public class FileService {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -40,7 +41,6 @@ public class FileService  {
     public static void setFactory(SessionFactory factory) {
         FileService.factory = factory;
     }
-
 
 
     public FileModel get(int id) {
@@ -76,12 +76,48 @@ public class FileService  {
         return null;
     }
 
+    public FileModel create(FileModel fileModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            int id = Integer.valueOf(String.valueOf(session.save(fileModel.toEntity())));
+            tx.commit();
+            FileModel result = get(id);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
     public FileModel update(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
             FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime);
+            session.update(fileModel.toEntity());
+            tx.commit();
+            FileModel result = get(fileId);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public FileModel update(int fileId, FileModel fileModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
             session.update(fileModel.toEntity());
             tx.commit();
             FileModel result = get(fileId);
@@ -114,23 +150,16 @@ public class FileService  {
         return false;
     }
 
-    //    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
-//        Session session = factory.openSession();
-//        Criteria criteria = session.createCriteria(SearchLegalRelationshipModel.class, "legalrelationship");
-//        criteria = searchLegalRelationshipModel.apply(criteria);
-//        List<LegalrelationshipEntity> legalrelationshipEntities = criteria.list();
-//        List<LegalRelationshipModel> legalRelationshipModels = new ArrayList<>();
-//        legalrelationshipEntities.forEach(x -> {
-//            legalRelationshipModels.add(new LegalRelationshipModel(x));
-//        });
-//        JSONObject obj = new JSONObject();
-//        int statusCode = 200;
-//        JSONArray data = new JSONArray();
-//        for (LegalRelationshipModel x : legalRelationshipModels) {
-//            data.add(x.toJsonObject());
-//        }
-//        obj.put("status", statusCode);
-//        obj.put("data", data);
-//        return obj;
-//    }
+    public List<FileModel> get(SearchFileModel searchFileModel) {
+        Session session = factory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<FileEntity> criteria = builder.createQuery(FileEntity.class);
+        Root<FileEntity> FileEntities = criteria.from(FileEntity.class);
+        try {
+            List<FileEntity> fileEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(fileEntities, fileEntity -> new FileModel(fileEntity));
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

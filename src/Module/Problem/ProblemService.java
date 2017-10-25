@@ -5,7 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import com.google.common.collect.Lists;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,11 +15,12 @@ import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 /**
  * Created by Son on 6/15/2017.
  */
-public class ProblemService{
+public class ProblemService {
     private static SessionFactory factory;
     private static int currentActive;
 
@@ -74,12 +75,48 @@ public class ProblemService{
         return null;
     }
 
+    public ProblemModel create(ProblemModel problemModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            int id = Integer.valueOf(String.valueOf(session.save(problemModel.toEntity())));
+            tx.commit();
+            ProblemModel result = get(id);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
     public ProblemModel update(int problemId, String status) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
             ProblemModel problemModel = new ProblemModel(problemId, status);
+            session.update(problemModel.toEntity());
+            tx.commit();
+            ProblemModel result = get(problemId);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public ProblemModel update(int problemId, ProblemModel problemModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
             session.update(problemModel.toEntity());
             tx.commit();
             ProblemModel result = get(problemId);
@@ -112,23 +149,16 @@ public class ProblemService{
         return false;
     }
 
-    //    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
-//        Session session = factory.openSession();
-//        Criteria criteria = session.createCriteria(SearchLegalRelationshipModel.class, "legalrelationship");
-//        criteria = searchLegalRelationshipModel.apply(criteria);
-//        List<LegalrelationshipEntity> legalrelationshipEntities = criteria.list();
-//        List<LegalRelationshipModel> legalRelationshipModels = new ArrayList<>();
-//        legalrelationshipEntities.forEach(x -> {
-//            legalRelationshipModels.add(new LegalRelationshipModel(x));
-//        });
-//        JSONObject obj = new JSONObject();
-//        int statusCode = 200;
-//        JSONArray data = new JSONArray();
-//        for (LegalRelationshipModel x : legalRelationshipModels) {
-//            data.add(x.toJsonObject());
-//        }
-//        obj.put("status", statusCode);
-//        obj.put("data", data);
-//        return obj;
-//    }
+    public List<ProblemModel> get(SearchProblemModel searchProblemModel) {
+        Session session = factory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<ProblemEntity> criteria = builder.createQuery(ProblemEntity.class);
+        Root<ProblemEntity> ProblemEntities = criteria.from(ProblemEntity.class);
+        try {
+            List<ProblemEntity> problemEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(problemEntities, problemEntity -> new ProblemModel(problemEntity));
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

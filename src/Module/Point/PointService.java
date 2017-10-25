@@ -5,7 +5,7 @@ import Manager.Interface.IDatabaseControllService;
 import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import com.google.common.collect.Lists;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,6 +15,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 /**
  * Created by Son on 6/15/2017.
@@ -40,7 +41,7 @@ public class PointService {
         PointService.factory = factory;
     }
 
-      public PointModel get(int id) {
+    public PointModel get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<PointEntity> criteria = builder.createQuery(PointEntity.class);
@@ -52,6 +53,24 @@ public class PointService {
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+    public PointModel create(PointModel pointModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            int id = Integer.valueOf(String.valueOf(session.save(pointModel.toEntity())));
+            tx.commit();
+            PointModel result = get(id);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
     }
 
     public PointModel create(int pointId, Integer x, Integer y) {
@@ -92,6 +111,24 @@ public class PointService {
         return null;
     }
 
+    public PointModel update(int pointId, PointModel pointModel) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(pointModel.toEntity());
+            tx.commit();
+            PointModel result = get(pointId);
+            return result;
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
     public boolean delete(int id) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -111,23 +148,16 @@ public class PointService {
         return false;
     }
 
-    //    public JSONObject get(SearchLegalRelationshipModel searchLegalRelationshipModel) {
-//        Session session = factory.openSession();
-//        Criteria criteria = session.createCriteria(SearchLegalRelationshipModel.class, "legalrelationship");
-//        criteria = searchLegalRelationshipModel.apply(criteria);
-//        List<LegalrelationshipEntity> legalrelationshipEntities = criteria.list();
-//        List<LegalRelationshipModel> legalRelationshipModels = new ArrayList<>();
-//        legalrelationshipEntities.forEach(x -> {
-//            legalRelationshipModels.add(new LegalRelationshipModel(x));
-//        });
-//        JSONObject obj = new JSONObject();
-//        int statusCode = 200;
-//        JSONArray data = new JSONArray();
-//        for (LegalRelationshipModel x : legalRelationshipModels) {
-//            data.add(x.toJsonObject());
-//        }
-//        obj.put("status", statusCode);
-//        obj.put("data", data);
-//        return obj;
-//    }
+    public List<PointModel> get(SearchPointModel searchPointModel) {
+        Session session = factory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<PointEntity> criteria = builder.createQuery(PointEntity.class);
+        Root<PointEntity> PointEntities = criteria.from(PointEntity.class);
+        try {
+            List<PointEntity> pointEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(pointEntities, pointEntity -> new PointModel(pointEntity));
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }
