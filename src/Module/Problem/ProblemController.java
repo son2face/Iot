@@ -17,7 +17,7 @@ public class ProblemController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<ProblemModel> get(@BeanParam SearchProblemModel searchProblemModel) {
+    public List<ProblemEntity> get(@BeanParam SearchProblemModel searchProblemModel) {
         return problemService.get(searchProblemModel);
     }
 
@@ -32,23 +32,23 @@ public class ProblemController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{problemId}")
-    public ProblemModel getId(@PathParam("problemId") int problemId) {
+    public ProblemEntity getId(@PathParam("problemId") int problemId) {
         return problemService.get(problemId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    public ProblemModel create(ProblemModel problemModel) {
-        return problemService.create(problemModel);
+    public ProblemEntity create(ProblemEntity problemEntity) {
+        return problemService.create(problemEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{problemId}")
-    public ProblemModel update(@PathParam("problemId") int problemId, ProblemModel problemModel) {
-        return problemService.update(problemId, problemModel);
+    public ProblemEntity update(@PathParam("problemId") int problemId, ProblemEntity problemEntity) {
+        return problemService.update(problemId, problemEntity);
     }
 
     @DELETE

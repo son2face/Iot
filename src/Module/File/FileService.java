@@ -43,29 +43,29 @@ public class FileService {
     }
 
 
-    public FileModel get(int id) {
+    public FileEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<FileEntity> criteria = builder.createQuery(FileEntity.class);
-        Root<FileEntity> fileEntities = criteria.from(FileEntity.class);
+        CriteriaQuery<FileModel> criteria = builder.createQuery(FileModel.class);
+        Root<FileModel> fileEntities = criteria.from(FileModel.class);
         criteria.where(builder.equal(fileEntities.get("fileId"), id));
         try {
-            FileEntity fileEntity = session.createQuery(criteria).getSingleResult();
-            return new FileModel(fileEntity);
+            FileModel fileModel = session.createQuery(criteria).getSingleResult();
+            return new FileEntity(fileModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public FileModel create(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
+    public FileEntity create(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime,userId);
-            int id = Integer.valueOf(String.valueOf(session.save(fileModel.toEntity())));
+            FileEntity fileEntity = new FileEntity(fileId, name, data, createdTime, type, expiredTime,userId);
+            int id = Integer.valueOf(String.valueOf(session.save(fileEntity.toEntity())));
             tx.commit();
-            FileModel result = get(id);
+            FileEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -76,14 +76,14 @@ public class FileService {
         return null;
     }
 
-    public FileModel create(FileModel fileModel) {
+    public FileEntity create(FileEntity fileEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(fileModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(fileEntity.toEntity())));
             tx.commit();
-            FileModel result = get(id);
+            FileEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -94,15 +94,15 @@ public class FileService {
         return null;
     }
 
-    public FileModel update(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
+    public FileEntity update(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime,userId);
-            session.update(fileModel.toEntity());
+            FileEntity fileEntity = new FileEntity(fileId, name, data, createdTime, type, expiredTime,userId);
+            session.update(fileEntity.toEntity());
             tx.commit();
-            FileModel result = get(fileId);
+            FileEntity result = get(fileId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -113,14 +113,14 @@ public class FileService {
         return null;
     }
 
-    public FileModel update(int fileId, FileModel fileModel) {
+    public FileEntity update(int fileId, FileEntity fileEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(fileModel.toEntity());
+            session.update(fileEntity.toEntity());
             tx.commit();
-            FileModel result = get(fileId);
+            FileEntity result = get(fileId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -136,9 +136,9 @@ public class FileService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            FileEntity fileEntity = new FileEntity();
-            fileEntity.setFileId(id);
-            session.delete(fileEntity);
+            FileModel fileModel = new FileModel();
+            fileModel.setFileId(id);
+            session.delete(fileModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -150,14 +150,14 @@ public class FileService {
         return false;
     }
 
-    public List<FileModel> get(SearchFileModel searchFileModel) {
+    public List<FileEntity> get(SearchFileModel searchFileModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<FileEntity> criteria = builder.createQuery(FileEntity.class);
-        Root<FileEntity> FileEntities = criteria.from(FileEntity.class);
+        CriteriaQuery<FileModel> criteria = builder.createQuery(FileModel.class);
+        Root<FileModel> FileEntities = criteria.from(FileModel.class);
         try {
-            List<FileEntity> fileEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(fileEntities, fileEntity -> new FileModel(fileEntity));
+            List<FileModel> fileEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(fileEntities, fileEntity -> new FileEntity(fileEntity));
         } catch (NoResultException e) {
             return null;
         }

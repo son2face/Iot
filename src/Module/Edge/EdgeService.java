@@ -42,29 +42,29 @@ public class EdgeService {
     }
 
 
-    public EdgeModel get(int id) {
+    public EdgeEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<EdgeEntity> criteria = builder.createQuery(EdgeEntity.class);
-        Root<EdgeEntity> EdgeEntities = criteria.from(EdgeEntity.class);
+        CriteriaQuery<EdgeModel> criteria = builder.createQuery(EdgeModel.class);
+        Root<EdgeModel> EdgeEntities = criteria.from(EdgeModel.class);
         criteria.where(builder.equal(EdgeEntities.get("edgeId"), id));
         try {
-            EdgeEntity edgeEntity = session.createQuery(criteria).getSingleResult();
-            return new EdgeModel(edgeEntity);
+            EdgeModel edgeModel = session.createQuery(criteria).getSingleResult();
+            return new EdgeEntity(edgeModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public EdgeModel create(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
+    public EdgeEntity create(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY, shapeId);
-            int id = Integer.valueOf(String.valueOf(session.save(edgeModel.toEntity())));
+            EdgeEntity edgeEntity = new EdgeEntity(edgeId, startX, startY, endX, endY, shapeId);
+            int id = Integer.valueOf(String.valueOf(session.save(edgeEntity.toEntity())));
             tx.commit();
-            EdgeModel result = get(id);
+            EdgeEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -75,14 +75,14 @@ public class EdgeService {
         return null;
     }
 
-    public EdgeModel create(EdgeModel edgeModel) {
+    public EdgeEntity create(EdgeEntity edgeEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(edgeModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(edgeEntity.toEntity())));
             tx.commit();
-            EdgeModel result = get(id);
+            EdgeEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -93,15 +93,15 @@ public class EdgeService {
         return null;
     }
 
-    public EdgeModel update(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
+    public EdgeEntity update(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY, shapeId);
-            session.update(edgeModel.toEntity());
+            EdgeEntity edgeEntity = new EdgeEntity(edgeId, startX, startY, endX, endY, shapeId);
+            session.update(edgeEntity.toEntity());
             tx.commit();
-            EdgeModel result = get(edgeId);
+            EdgeEntity result = get(edgeId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -112,14 +112,14 @@ public class EdgeService {
         return null;
     }
 
-    public EdgeModel update(int edgeId, EdgeModel edgeModel) {
+    public EdgeEntity update(int edgeId, EdgeEntity edgeEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(edgeModel.toEntity());
+            session.update(edgeEntity.toEntity());
             tx.commit();
-            EdgeModel result = get(edgeId);
+            EdgeEntity result = get(edgeId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -135,9 +135,9 @@ public class EdgeService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            EdgeEntity edgeEntity = new EdgeEntity();
-            edgeEntity.setEdgeId(id);
-            session.delete(edgeEntity);
+            EdgeModel edgeModel = new EdgeModel();
+            edgeModel.setEdgeId(id);
+            session.delete(edgeModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -149,14 +149,14 @@ public class EdgeService {
         return false;
     }
 
-    public List<EdgeModel> get(SearchEdgeModel searchEdgeModel) {
+    public List<EdgeEntity> get(SearchEdgeModel searchEdgeModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<EdgeEntity> criteria = builder.createQuery(EdgeEntity.class);
-        Root<EdgeEntity> EdgeEntities = criteria.from(EdgeEntity.class);
+        CriteriaQuery<EdgeModel> criteria = builder.createQuery(EdgeModel.class);
+        Root<EdgeModel> EdgeEntities = criteria.from(EdgeModel.class);
         try {
-            List<EdgeEntity> edgeEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(edgeEntities, edgeEntity -> new EdgeModel(edgeEntity));
+            List<EdgeModel> edgeEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(edgeEntities, edgeEntity -> new EdgeEntity(edgeEntity));
         } catch (NoResultException e) {
             return null;
         }

@@ -2,88 +2,46 @@ package Module.Point;
 
 import Module.Problem.ProblemEntity;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "point", schema = "intelligent", catalog = "")
-public class PointEntity {
-    private int pointId;
-    private Integer x;
-    private Integer y;
-    private Integer problemId;
-    private ProblemEntity problemByProblemId;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+public class PointEntity implements Serializable {
+    public int pointId;
+    public Integer x;
+    public Integer y;
+    public Integer problemId;
+    public ProblemEntity problemEntity;
 
-    @Id
-    @Column(name = "pointId", nullable = false)
-    public int getPointId() {
-        return pointId;
+
+    public PointEntity() {
     }
 
-    public void setPointId(int pointId) {
+    public PointEntity(int pointId, Integer x, Integer y, Integer problemId) {
         this.pointId = pointId;
-    }
-
-    @Basic
-    @Column(name = "x", nullable = true)
-    public Integer getX() {
-        return x;
-    }
-
-    public void setX(Integer x) {
         this.x = x;
-    }
-
-    @Basic
-    @Column(name = "y", nullable = true)
-    public Integer getY() {
-        return y;
-    }
-
-    public void setY(Integer y) {
         this.y = y;
-    }
-
-    @Basic
-    @Column(name = "problemId", nullable = true)
-    public Integer getProblemId() {
-        return problemId;
-    }
-
-    public void setProblemId(Integer problemId) {
         this.problemId = problemId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PointEntity that = (PointEntity) o;
-
-        if (pointId != that.pointId) return false;
-        if (x != null ? !x.equals(that.x) : that.x != null) return false;
-        if (y != null ? !y.equals(that.y) : that.y != null) return false;
-        if (problemId != null ? !problemId.equals(that.problemId) : that.problemId != null) return false;
-
-        return true;
+    public PointEntity(PointModel PointModel) {
+        this.pointId = PointModel.getPointId();
+        this.x = PointModel.getX();
+        this.y = PointModel.getY();
+        this.problemId = PointModel.getProblemId();
+        if (PointModel.getProblemByProblemId() != null) this.problemEntity = new ProblemEntity(PointModel.getProblemByProblemId());
     }
 
-    @Override
-    public int hashCode() {
-        int result = pointId;
-        result = 31 * result + (x != null ? x.hashCode() : 0);
-        result = 31 * result + (y != null ? y.hashCode() : 0);
-        result = 31 * result + (problemId != null ? problemId.hashCode() : 0);
-        return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "problemId", referencedColumnName = "problemId", insertable=false, updatable=false)
-    public ProblemEntity getProblemByProblemId() {
-        return problemByProblemId;
-    }
-
-    public void setProblemByProblemId(ProblemEntity problemByProblemId) {
-        this.problemByProblemId = problemByProblemId;
+    public PointModel toEntity() {
+        PointModel PointModel = new PointModel();
+        PointModel.setPointId(pointId);
+        PointModel.setX(x);
+        PointModel.setY(y);
+        PointModel.setProblemId(problemId);
+        if (problemEntity != null) PointModel.setProblemByProblemId(problemEntity.toEntity());
+        return PointModel;
     }
 }

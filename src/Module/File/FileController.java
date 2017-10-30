@@ -17,7 +17,7 @@ public class FileController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<FileModel> get(@BeanParam SearchFileModel searchFileModel) {
+    public List<FileEntity> get(@BeanParam SearchFileModel searchFileModel) {
         return fileService.get(searchFileModel);
     }
 
@@ -32,23 +32,23 @@ public class FileController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{fileId}")
-    public FileModel getId(@PathParam("fileId") int fileId) {
+    public FileEntity getId(@PathParam("fileId") int fileId) {
         return fileService.get(fileId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    public FileModel create(FileModel fileModel) {
-        return fileService.create(fileModel);
+    public FileEntity create(FileEntity fileEntity) {
+        return fileService.create(fileEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{fileId}")
-    public FileModel update(@PathParam("fileId") int fileId, FileModel fileModel) {
-        return fileService.update(fileId, fileModel);
+    public FileEntity update(@PathParam("fileId") int fileId, FileEntity fileEntity) {
+        return fileService.update(fileId, fileEntity);
     }
 
     @DELETE

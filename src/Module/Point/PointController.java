@@ -17,7 +17,7 @@ public class PointController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<PointModel> get(@BeanParam SearchPointModel searchPointModel) {
+    public List<PointEntity> get(@BeanParam SearchPointModel searchPointModel) {
         return pointService.get(searchPointModel);
     }
 
@@ -32,23 +32,23 @@ public class PointController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{pointId}")
-    public PointModel getId(@PathParam("pointId") int pointId) {
+    public PointEntity getId(@PathParam("pointId") int pointId) {
         return pointService.get(pointId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    public PointModel create(PointModel pointModel) {
-        return pointService.create(pointModel);
+    public PointEntity create(PointEntity pointEntity) {
+        return pointService.create(pointEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{pointId}")
-    public PointModel update(@PathParam("pointId") int pointId, PointModel pointModel) {
-        return pointService.update(pointId, pointModel);
+    public PointEntity update(@PathParam("pointId") int pointId, PointEntity pointEntity) {
+        return pointService.update(pointId, pointEntity);
     }
 
     @DELETE

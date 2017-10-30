@@ -7,6 +7,16 @@
       </list>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/index.html" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/inline.bundle.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/main.bundle.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/polyfills.bundle.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/scripts.bundle.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/styles.bundle.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/sw.js" />
+    <file url="file://$PROJECT_DIR$/web/Angular4/dist/vendor.bundle.js" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

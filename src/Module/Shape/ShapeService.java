@@ -42,29 +42,29 @@ public class ShapeService {
     }
 
 
-    public ShapeModel get(int id) {
+    public ShapeEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<ShapeEntity> criteria = builder.createQuery(ShapeEntity.class);
-        Root<ShapeEntity> shapeEntities = criteria.from(ShapeEntity.class);
+        CriteriaQuery<ShapeModel> criteria = builder.createQuery(ShapeModel.class);
+        Root<ShapeModel> shapeEntities = criteria.from(ShapeModel.class);
         criteria.where(builder.equal(shapeEntities.get("shapeId"), id));
         try {
-            ShapeEntity shapeEntity = session.createQuery(criteria).getSingleResult();
-            return new ShapeModel(shapeEntity);
+            ShapeModel shapeModel = session.createQuery(criteria).getSingleResult();
+            return new ShapeEntity(shapeModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public ShapeModel create(int shapeId, Integer problemId, Integer level, Integer userId) {
+    public ShapeEntity create(int shapeId, Integer problemId, Integer level, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ShapeModel shapeModel = new ShapeModel(shapeId, problemId, level, userId);
-            int id = Integer.valueOf(String.valueOf(session.save(shapeModel.toEntity())));
+            ShapeEntity shapeEntity = new ShapeEntity(shapeId, problemId, level, userId);
+            int id = Integer.valueOf(String.valueOf(session.save(shapeEntity.toEntity())));
             tx.commit();
-            ShapeModel result = get(id);
+            ShapeEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -75,14 +75,14 @@ public class ShapeService {
         return null;
     }
 
-    public ShapeModel create(ShapeModel shapeModel) {
+    public ShapeEntity create(ShapeEntity shapeEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(shapeModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(shapeEntity.toEntity())));
             tx.commit();
-            ShapeModel result = get(id);
+            ShapeEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -93,15 +93,15 @@ public class ShapeService {
         return null;
     }
 
-    public ShapeModel update(int shapeId, Integer problemId, Integer level, Integer userId) {
+    public ShapeEntity update(int shapeId, Integer problemId, Integer level, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ShapeModel shapeModel = new ShapeModel(shapeId, problemId, level, userId);
-            session.update(shapeModel.toEntity());
+            ShapeEntity shapeEntity = new ShapeEntity(shapeId, problemId, level, userId);
+            session.update(shapeEntity.toEntity());
             tx.commit();
-            ShapeModel result = get(shapeId);
+            ShapeEntity result = get(shapeId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -112,14 +112,14 @@ public class ShapeService {
         return null;
     }
 
-    public ShapeModel update(int shapeId, ShapeModel shapeModel) {
+    public ShapeEntity update(int shapeId, ShapeEntity shapeEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(shapeModel.toEntity());
+            session.update(shapeEntity.toEntity());
             tx.commit();
-            ShapeModel result = get(shapeId);
+            ShapeEntity result = get(shapeId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -135,9 +135,9 @@ public class ShapeService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ShapeEntity shapeEntity = new ShapeEntity();
-            shapeEntity.setShapeId(id);
-            session.delete(shapeEntity);
+            ShapeModel shapeModel = new ShapeModel();
+            shapeModel.setShapeId(id);
+            session.delete(shapeModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -149,14 +149,14 @@ public class ShapeService {
         return false;
     }
 
-    public List<ShapeModel> get(SearchShapeModel searchShapeModel) {
+    public List<ShapeEntity> get(SearchShapeModel searchShapeModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<ShapeEntity> criteria = builder.createQuery(ShapeEntity.class);
-        Root<ShapeEntity> ShapeEntities = criteria.from(ShapeEntity.class);
+        CriteriaQuery<ShapeModel> criteria = builder.createQuery(ShapeModel.class);
+        Root<ShapeModel> ShapeEntities = criteria.from(ShapeModel.class);
         try {
-            List<ShapeEntity> shapeEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(shapeEntities, shapeEntity -> new ShapeModel(shapeEntity));
+            List<ShapeModel> shapeEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(shapeEntities, shapeEntity -> new ShapeEntity(shapeEntity));
         } catch (NoResultException e) {
             return null;
         }

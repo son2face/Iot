@@ -41,28 +41,28 @@ public class PointService {
         PointService.factory = factory;
     }
 
-    public PointModel get(int id) {
+    public PointEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<PointEntity> criteria = builder.createQuery(PointEntity.class);
-        Root<PointEntity> pointEntities = criteria.from(PointEntity.class);
+        CriteriaQuery<PointModel> criteria = builder.createQuery(PointModel.class);
+        Root<PointModel> pointEntities = criteria.from(PointModel.class);
         criteria.where(builder.equal(pointEntities.get("pointId"), id));
         try {
-            PointEntity pointEntity = session.createQuery(criteria).getSingleResult();
-            return new PointModel(pointEntity);
+            PointModel pointModel = session.createQuery(criteria).getSingleResult();
+            return new PointEntity(pointModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public PointModel create(PointModel pointModel) {
+    public PointEntity create(PointEntity pointEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(pointModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(pointEntity.toEntity())));
             tx.commit();
-            PointModel result = get(id);
+            PointEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -73,15 +73,15 @@ public class PointService {
         return null;
     }
 
-    public PointModel create(int pointId, Integer x, Integer y, Integer problemId) {
+    public PointEntity create(int pointId, Integer x, Integer y, Integer problemId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            PointModel pointModel = new PointModel(pointId, x, y, problemId);
-            int id = Integer.valueOf(String.valueOf(session.save(pointModel.toEntity())));
+            PointEntity pointEntity = new PointEntity(pointId, x, y, problemId);
+            int id = Integer.valueOf(String.valueOf(session.save(pointEntity.toEntity())));
             tx.commit();
-            PointModel result = get(id);
+            PointEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -92,15 +92,15 @@ public class PointService {
         return null;
     }
 
-    public PointModel update(int pointId, Integer x, Integer y, Integer problemId) {
+    public PointEntity update(int pointId, Integer x, Integer y, Integer problemId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            PointModel pointModel = new PointModel(pointId, x, y, problemId);
-            session.update(pointModel.toEntity());
+            PointEntity pointEntity = new PointEntity(pointId, x, y, problemId);
+            session.update(pointEntity.toEntity());
             tx.commit();
-            PointModel result = get(pointId);
+            PointEntity result = get(pointId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -111,14 +111,14 @@ public class PointService {
         return null;
     }
 
-    public PointModel update(int pointId, PointModel pointModel) {
+    public PointEntity update(int pointId, PointEntity pointEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(pointModel.toEntity());
+            session.update(pointEntity.toEntity());
             tx.commit();
-            PointModel result = get(pointId);
+            PointEntity result = get(pointId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -134,9 +134,9 @@ public class PointService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            PointEntity pointEntity = new PointEntity();
-            pointEntity.setPointId(id);
-            session.delete(pointEntity);
+            PointModel pointModel = new PointModel();
+            pointModel.setPointId(id);
+            session.delete(pointModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -148,14 +148,14 @@ public class PointService {
         return false;
     }
 
-    public List<PointModel> get(SearchPointModel searchPointModel) {
+    public List<PointEntity> get(SearchPointModel searchPointModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<PointEntity> criteria = builder.createQuery(PointEntity.class);
-        Root<PointEntity> PointEntities = criteria.from(PointEntity.class);
+        CriteriaQuery<PointModel> criteria = builder.createQuery(PointModel.class);
+        Root<PointModel> PointEntities = criteria.from(PointModel.class);
         try {
-            List<PointEntity> pointEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(pointEntities, pointEntity -> new PointModel(pointEntity));
+            List<PointModel> pointEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(pointEntities, pointEntity -> new PointEntity(pointEntity));
         } catch (NoResultException e) {
             return null;
         }

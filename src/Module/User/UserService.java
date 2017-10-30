@@ -42,29 +42,29 @@ public class UserService {
     }
 
 
-    public UserModel get(int id) {
+    public UserEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<UserEntity> criteria = builder.createQuery(UserEntity.class);
-        Root<UserEntity> userEntities = criteria.from(UserEntity.class);
+        CriteriaQuery<UserModel> criteria = builder.createQuery(UserModel.class);
+        Root<UserModel> userEntities = criteria.from(UserModel.class);
         criteria.where(builder.equal(userEntities.get("userId"), id));
         try {
-            UserEntity userEntity = session.createQuery(criteria).getSingleResult();
-            return new UserModel(userEntity);
+            UserModel userModel = session.createQuery(criteria).getSingleResult();
+            return new UserEntity(userModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public UserModel create(int userId, String userName, String passWord) {
+    public UserEntity create(int userId, String userName, String passWord) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            UserModel userModel = new UserModel(userId, userName, passWord);
-            int id = Integer.valueOf(String.valueOf(session.save(userModel.toEntity())));
+            UserEntity userEntity = new UserEntity(userId, userName, passWord);
+            int id = Integer.valueOf(String.valueOf(session.save(userEntity.toEntity())));
             tx.commit();
-            UserModel result = get(id);
+            UserEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -75,14 +75,14 @@ public class UserService {
         return null;
     }
 
-    public UserModel create(UserModel userModel) {
+    public UserEntity create(UserEntity userEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(userModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(userEntity.toEntity())));
             tx.commit();
-            UserModel result = get(id);
+            UserEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -93,15 +93,15 @@ public class UserService {
         return null;
     }
 
-    public UserModel update(int userId, String userName, String passWord) {
+    public UserEntity update(int userId, String userName, String passWord) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            UserModel userModel = new UserModel(userId, userName, passWord);
-            session.update(userModel.toEntity());
+            UserEntity userEntity = new UserEntity(userId, userName, passWord);
+            session.update(userEntity.toEntity());
             tx.commit();
-            UserModel result = get(userId);
+            UserEntity result = get(userId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -112,14 +112,14 @@ public class UserService {
         return null;
     }
 
-    public UserModel update(int userId, UserModel userModel) {
+    public UserEntity update(int userId, UserEntity userEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(userModel.toEntity());
+            session.update(userEntity.toEntity());
             tx.commit();
-            UserModel result = get(userId);
+            UserEntity result = get(userId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -135,9 +135,9 @@ public class UserService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            UserEntity userEntity = new UserEntity();
-            userEntity.setUserId(id);
-            session.delete(userEntity);
+            UserModel userModel = new UserModel();
+            userModel.setUserId(id);
+            session.delete(userModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -149,14 +149,14 @@ public class UserService {
         return false;
     }
 
-    public List<UserModel> get(SearchUserModel searchUserModel) {
+    public List<UserEntity> get(SearchUserModel searchUserModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<UserEntity> criteria = builder.createQuery(UserEntity.class);
-        Root<UserEntity> UserEntities = criteria.from(UserEntity.class);
+        CriteriaQuery<UserModel> criteria = builder.createQuery(UserModel.class);
+        Root<UserModel> UserEntities = criteria.from(UserModel.class);
         try {
-            List<UserEntity> userEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(userEntities, userEntity -> new UserModel(userEntity));
+            List<UserModel> userEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(userEntities, userEntity -> new UserEntity(userEntity));
         } catch (NoResultException e) {
             return null;
         }

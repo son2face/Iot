@@ -4,95 +4,55 @@ import Module.File.FileEntity;
 import Module.Problem.ProblemEntity;
 import Module.Shape.ShapeEntity;
 
-import javax.persistence.*;
-import java.util.Collection;
+import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collectors;
 
-@Entity
-@Table(name = "user", schema = "intelligent", catalog = "")
-public class UserEntity {
-    private int userId;
-    private String userName;
-    private String passWord;
-    private Collection<FileEntity> filesByUserId;
-    private Collection<ProblemEntity> problemsByUserId;
-    private Collection<ShapeEntity> shapesByUserId;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+public class UserEntity implements Serializable {
+    public int userId;
+    public String userName;
+    public String passWord;
+    private List<FileEntity> fileEntityList;
+    private List<ProblemEntity> problemEntityList;
+    private List<ShapeEntity> shapeEntityList;
 
-    @Id
-    @Column(name = "userId", nullable = false)
-    public int getUserId() {
-        return userId;
+    public UserEntity() {
     }
 
-    public void setUserId(int userId) {
+    public UserEntity(int userId, String userName, String passWord) {
         this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "userName", nullable = true, length = 100)
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    @Basic
-    @Column(name = "passWord", nullable = true, length = 100)
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord(String passWord) {
         this.passWord = passWord;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserEntity that = (UserEntity) o;
-
-        if (userId != that.userId) return false;
-        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
-        if (passWord != null ? !passWord.equals(that.passWord) : that.passWord != null) return false;
-
-        return true;
+    public UserEntity(UserModel UserModel) {
+        this.userId = UserModel.getUserId();
+        this.userName = UserModel.getUserName();
+        this.passWord = UserModel.getPassWord();
+        if (UserModel.getFilesByUserId() != null)
+            this.fileEntityList = UserModel.getFilesByUserId().parallelStream().map(FileEntity::new).collect(Collectors.toList());
+        if (UserModel.getProblemsByUserId() != null)
+            this.problemEntityList = UserModel.getProblemsByUserId().parallelStream().map(ProblemEntity::new).collect(Collectors.toList());
+        if (UserModel.getShapesByUserId() != null)
+            this.shapeEntityList = UserModel.getShapesByUserId().parallelStream().map(ShapeEntity::new).collect(Collectors.toList());
     }
 
-    @Override
-    public int hashCode() {
-        int result = userId;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (passWord != null ? passWord.hashCode() : 0);
-        return result;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<FileEntity> getFilesByUserId() {
-        return filesByUserId;
-    }
-
-    public void setFilesByUserId(Collection<FileEntity> filesByUserId) {
-        this.filesByUserId = filesByUserId;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<ProblemEntity> getProblemsByUserId() {
-        return problemsByUserId;
-    }
-
-    public void setProblemsByUserId(Collection<ProblemEntity> problemsByUserId) {
-        this.problemsByUserId = problemsByUserId;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<ShapeEntity> getShapesByUserId() {
-        return shapesByUserId;
-    }
-
-    public void setShapesByUserId(Collection<ShapeEntity> shapesByUserId) {
-        this.shapesByUserId = shapesByUserId;
+    public UserModel toEntity() {
+        UserModel UserModel = new UserModel();
+        UserModel.setUserId(userId);
+        UserModel.setUserName(userName);
+        UserModel.setPassWord(passWord);
+        if (fileEntityList != null)
+            UserModel.setFilesByUserId(fileEntityList.parallelStream().map(FileEntity::toEntity).collect(Collectors.toList()));
+        if (problemEntityList != null)
+            UserModel.setProblemsByUserId(problemEntityList.parallelStream().map(ProblemEntity::toEntity).collect(Collectors.toList()));
+        if (shapeEntityList != null)
+            UserModel.setShapesByUserId(shapeEntityList.parallelStream().map(ShapeEntity::toEntity).collect(Collectors.toList()));
+        return UserModel;
     }
 }

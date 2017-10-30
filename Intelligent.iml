@@ -25,7 +25,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/web/Angular4/dist" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/Angular4/dist" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/Angular4/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/Angular4/src/app" />
       <excludeFolder url="file://$MODULE_DIR$/Angular4/tmp" />

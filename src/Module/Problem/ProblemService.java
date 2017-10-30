@@ -42,29 +42,29 @@ public class ProblemService {
     }
 
 
-    public ProblemModel get(int id) {
+    public ProblemEntity get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<ProblemEntity> criteria = builder.createQuery(ProblemEntity.class);
-        Root<ProblemEntity> problemEntities = criteria.from(ProblemEntity.class);
+        CriteriaQuery<ProblemModel> criteria = builder.createQuery(ProblemModel.class);
+        Root<ProblemModel> problemEntities = criteria.from(ProblemModel.class);
         criteria.where(builder.equal(problemEntities.get("problemId"), id));
         try {
-            ProblemEntity problemEntity = session.createQuery(criteria).getSingleResult();
-            return new ProblemModel(problemEntity);
+            ProblemModel problemModel = session.createQuery(criteria).getSingleResult();
+            return new ProblemEntity(problemModel);
         } catch (NoResultException e) {
             return null;
         }
     }
 
-    public ProblemModel create(int problemId, String status, Integer fileId, Integer userId) {
+    public ProblemEntity create(int problemId, String status, Integer fileId, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ProblemModel problemModel = new ProblemModel(problemId, status, fileId, userId);
-            int id = Integer.valueOf(String.valueOf(session.save(problemModel.toEntity())));
+            ProblemEntity problemEntity = new ProblemEntity(problemId, status, fileId, userId);
+            int id = Integer.valueOf(String.valueOf(session.save(problemEntity.toEntity())));
             tx.commit();
-            ProblemModel result = get(id);
+            ProblemEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -75,14 +75,14 @@ public class ProblemService {
         return null;
     }
 
-    public ProblemModel create(ProblemModel problemModel) {
+    public ProblemEntity create(ProblemEntity problemEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(problemModel.toEntity())));
+            int id = Integer.valueOf(String.valueOf(session.save(problemEntity.toEntity())));
             tx.commit();
-            ProblemModel result = get(id);
+            ProblemEntity result = get(id);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -93,15 +93,15 @@ public class ProblemService {
         return null;
     }
 
-    public ProblemModel update(int problemId, String status, Integer fileId, Integer userId) {
+    public ProblemEntity update(int problemId, String status, Integer fileId, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ProblemModel problemModel = new ProblemModel(problemId, status, fileId, userId);
-            session.update(problemModel.toEntity());
+            ProblemEntity problemEntity = new ProblemEntity(problemId, status, fileId, userId);
+            session.update(problemEntity.toEntity());
             tx.commit();
-            ProblemModel result = get(problemId);
+            ProblemEntity result = get(problemId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -112,14 +112,14 @@ public class ProblemService {
         return null;
     }
 
-    public ProblemModel update(int problemId, ProblemModel problemModel) {
+    public ProblemEntity update(int problemId, ProblemEntity problemEntity) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(problemModel.toEntity());
+            session.update(problemEntity.toEntity());
             tx.commit();
-            ProblemModel result = get(problemId);
+            ProblemEntity result = get(problemId);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -135,9 +135,9 @@ public class ProblemService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ProblemEntity problemEntity = new ProblemEntity();
-            problemEntity.setProblemId(id);
-            session.delete(problemEntity);
+            ProblemModel problemModel = new ProblemModel();
+            problemModel.setProblemId(id);
+            session.delete(problemModel);
             tx.commit();
             return true;
         } catch (HibernateException e) {
@@ -149,14 +149,14 @@ public class ProblemService {
         return false;
     }
 
-    public List<ProblemModel> get(SearchProblemModel searchProblemModel) {
+    public List<ProblemEntity> get(SearchProblemModel searchProblemModel) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<ProblemEntity> criteria = builder.createQuery(ProblemEntity.class);
-        Root<ProblemEntity> ProblemEntities = criteria.from(ProblemEntity.class);
+        CriteriaQuery<ProblemModel> criteria = builder.createQuery(ProblemModel.class);
+        Root<ProblemModel> ProblemEntities = criteria.from(ProblemModel.class);
         try {
-            List<ProblemEntity> problemEntities = session.createQuery(criteria).getResultList();
-            return Lists.transform(problemEntities, problemEntity -> new ProblemModel(problemEntity));
+            List<ProblemModel> problemEntities = session.createQuery(criteria).getResultList();
+            return Lists.transform(problemEntities, problemEntity -> new ProblemEntity(problemEntity,problemEntity.getPointsByProblemId(),problemEntity.getShapesByProblemId()));
         } catch (NoResultException e) {
             return null;
         }

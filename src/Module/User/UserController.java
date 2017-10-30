@@ -17,7 +17,7 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<UserModel> get(@BeanParam SearchUserModel searchUserModel) {
+    public List<UserEntity> get(@BeanParam SearchUserModel searchUserModel) {
         return userService.get(searchUserModel);
     }
 
@@ -32,23 +32,23 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{userId}")
-    public UserModel getId(@PathParam("userId") int userId) {
+    public UserEntity getId(@PathParam("userId") int userId) {
         return userService.get(userId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    public UserModel create(UserModel userModel) {
-        return userService.create(userModel);
+    public UserEntity create(UserEntity userEntity) {
+        return userService.create(userEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{userId}")
-    public UserModel update(@PathParam("userId") int userId, UserModel userModel) {
-        return userService.update(userId, userModel);
+    public UserEntity update(@PathParam("userId") int userId, UserEntity userEntity) {
+        return userService.update(userId, userEntity);
     }
 
     @DELETE

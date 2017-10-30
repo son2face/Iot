@@ -1,65 +1,124 @@
 package Module.Problem;
 
-import Module.File.FileEntity;
 import Module.File.FileModel;
-import Module.Point.PointEntity;
 import Module.Point.PointModel;
-import Module.Shape.ShapeEntity;
 import Module.Shape.ShapeModel;
-import Module.User.UserEntity;
 import Module.User.UserModel;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-public class ProblemModel implements Serializable {
-    public int problemId;
-    public String status;
-    public Integer fileId;
-    public Integer userId;
-    public FileModel fileModel;
-    public UserModel userModel;
-    public List<PointModel> pointModelList;
-    public List<ShapeModel> shapeModelList;
+@Entity
+@Table(name = "problem", schema = "intelligent", catalog = "")
+public class ProblemModel {
+    private int problemId;
+    private String status;
+    private Integer fileId;
+    private Integer userId;
+    private Collection<PointModel> pointsByProblemId;
+    private FileModel fileByFileId;
+    private UserModel userByUserId;
+    private Collection<ShapeModel> shapesByProblemId;
 
-    public ProblemModel() {
+    @Id
+    @Column(name = "problemId", nullable = false)
+    public int getProblemId() {
+        return problemId;
     }
 
-    public ProblemModel(int problemId, String status,Integer fileId,Integer userId) {
+    public void setProblemId(int problemId) {
         this.problemId = problemId;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true, length = 45)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "fileId", nullable = true)
+    public Integer getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(Integer fileId) {
         this.fileId = fileId;
+    }
+
+    @Basic
+    @Column(name = "userId", nullable = true)
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public ProblemModel(ProblemEntity ProblemEntity) {
-        this.problemId = ProblemEntity.getProblemId();
-        this.status = ProblemEntity.getStatus();
-        this.fileId = ProblemEntity.getFileId();
-        this.userId = ProblemEntity.getUserId();
-        this.fileModel = new FileModel(ProblemEntity.getFileByFileId());
-        this.userModel = new UserModel(ProblemEntity.getUserByUserId());
-        this.pointModelList = ProblemEntity.getPointsByProblemId().parallelStream().map(PointModel::new).collect(Collectors.toList());
-        this.shapeModelList = ProblemEntity.getShapesByProblemId().parallelStream().map(ShapeModel::new).collect(Collectors.toList());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProblemModel that = (ProblemModel) o;
+
+        if (problemId != that.problemId) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (fileId != null ? !fileId.equals(that.fileId) : that.fileId != null) return false;
+        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
+
+        return true;
     }
 
-    public ProblemEntity toEntity() {
-        ProblemEntity ProblemEntity = new ProblemEntity();
-        ProblemEntity.setProblemId(problemId);
-        ProblemEntity.setStatus(status);
-        ProblemEntity.setFileId(fileId);
-        ProblemEntity.setUserId(userId);
-        ProblemEntity.setFileByFileId(fileModel.toEntity());
-        ProblemEntity.setUserByUserId(userModel.toEntity());
-        ProblemEntity.setPointsByProblemId(pointModelList.parallelStream().map(PointModel::toEntity).collect(Collectors.toList()));
-        ProblemEntity.setShapesByProblemId(shapeModelList.parallelStream().map(ShapeModel::toEntity).collect(Collectors.toList()));
-        return ProblemEntity;
+    @Override
+    public int hashCode() {
+        int result = problemId;
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (fileId != null ? fileId.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        return result;
+    }
+
+    @OneToMany(mappedBy = "problemByProblemId")
+    public Collection<PointModel> getPointsByProblemId() {
+        return pointsByProblemId;
+    }
+
+    public void setPointsByProblemId(Collection<PointModel> pointsByProblemId) {
+        this.pointsByProblemId = pointsByProblemId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "fileId", referencedColumnName = "fileId", insertable=false, updatable=false)
+    public FileModel getFileByFileId() {
+        return fileByFileId;
+    }
+
+    public void setFileByFileId(FileModel fileByFileId) {
+        this.fileByFileId = fileByFileId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userId", referencedColumnName = "userId", insertable=false, updatable=false)
+    public UserModel getUserByUserId() {
+        return userByUserId;
+    }
+
+    public void setUserByUserId(UserModel userByUserId) {
+        this.userByUserId = userByUserId;
+    }
+
+    @OneToMany(mappedBy = "problemByProblemId")
+    public Collection<ShapeModel> getShapesByProblemId() {
+        return shapesByProblemId;
+    }
+
+    public void setShapesByProblemId(Collection<ShapeModel> shapesByProblemId) {
+        this.shapesByProblemId = shapesByProblemId;
     }
 }

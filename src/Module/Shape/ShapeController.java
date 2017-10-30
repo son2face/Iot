@@ -17,7 +17,7 @@ public class ShapeController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<ShapeModel> get(@BeanParam SearchShapeModel searchShapeModel) {
+    public List<ShapeEntity> get(@BeanParam SearchShapeModel searchShapeModel) {
         return shapeService.get(searchShapeModel);
     }
 
@@ -32,23 +32,23 @@ public class ShapeController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{shapeId}")
-    public ShapeModel getId(@PathParam("shapeId") int shapeId) {
+    public ShapeEntity getId(@PathParam("shapeId") int shapeId) {
         return shapeService.get(shapeId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ShapeModel create(ShapeModel shapeModel) {
-        return shapeService.create(shapeModel);
+    public ShapeEntity create(ShapeEntity shapeEntity) {
+        return shapeService.create(shapeEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{shapeId}")
-    public ShapeModel update(@PathParam("shapeId") int shapeId, ShapeModel shapeModel) {
-        return shapeService.update(shapeId, shapeModel);
+    public ShapeEntity update(@PathParam("shapeId") int shapeId, ShapeEntity shapeEntity) {
+        return shapeService.update(shapeId, shapeEntity);
     }
 
     @DELETE

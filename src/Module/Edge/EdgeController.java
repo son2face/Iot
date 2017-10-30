@@ -17,7 +17,7 @@ public class EdgeController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public List<EdgeModel> get(@BeanParam SearchEdgeModel searchEdgeModel) {
+    public List<EdgeEntity> get(@BeanParam SearchEdgeModel searchEdgeModel) {
         return edgeService.get(searchEdgeModel);
     }
 
@@ -32,23 +32,23 @@ public class EdgeController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{edgeId}")
-    public EdgeModel getId(@PathParam("edgeId") int edgeId) {
+    public EdgeEntity getId(@PathParam("edgeId") int edgeId) {
         return edgeService.get(edgeId);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public EdgeModel create(EdgeModel edgeModel) {
-        return edgeService.create(edgeModel);
+//    @Consumes(MediaType.APPLICATION_JSON)
+    public EdgeEntity create(EdgeEntity edgeEntity) {
+        return edgeService.create(edgeEntity);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{edgeId}")
-    public EdgeModel update(@PathParam("edgeId") int edgeId, EdgeModel edgeModel) {
-        return edgeService.update(edgeId, edgeModel);
+    public EdgeEntity update(@PathParam("edgeId") int edgeId, EdgeEntity edgeEntity) {
+        return edgeService.update(edgeId, edgeEntity);
     }
 
     @DELETE

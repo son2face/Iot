@@ -2,114 +2,58 @@ package Module.Edge;
 
 import Module.Shape.ShapeEntity;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "edge", schema = "intelligent", catalog = "")
-public class EdgeEntity {
-    private int edgeId;
-    private Double startX;
-    private Double startY;
-    private Double endX;
-    private Double endY;
-    private Integer shapeId;
-    private ShapeEntity shapeByShapeId;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+public class EdgeEntity implements Serializable {
+    public int edgeId;
+    public Double startX;
+    public Double startY;
+    public Double endX;
+    public Double endY;
+    public Integer shapeId;
+    public ShapeEntity shapeEntity;
 
-    @Id
-    @Column(name = "edgeId", nullable = false)
-    public int getEdgeId() {
-        return edgeId;
+
+    public EdgeEntity() {
     }
 
-    public void setEdgeId(int edgeId) {
+    public EdgeEntity(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         this.edgeId = edgeId;
-    }
-
-    @Basic
-    @Column(name = "startX", nullable = true, precision = 0)
-    public Double getStartX() {
-        return startX;
-    }
-
-    public void setStartX(Double startX) {
         this.startX = startX;
-    }
-
-    @Basic
-    @Column(name = "startY", nullable = true, precision = 0)
-    public Double getStartY() {
-        return startY;
-    }
-
-    public void setStartY(Double startY) {
         this.startY = startY;
-    }
-
-    @Basic
-    @Column(name = "endX", nullable = true, precision = 0)
-    public Double getEndX() {
-        return endX;
-    }
-
-    public void setEndX(Double endX) {
         this.endX = endX;
-    }
-
-    @Basic
-    @Column(name = "endY", nullable = true, precision = 0)
-    public Double getEndY() {
-        return endY;
-    }
-
-    public void setEndY(Double endY) {
         this.endY = endY;
-    }
-
-    @Basic
-    @Column(name = "shapeId", nullable = true)
-    public Integer getShapeId() {
-        return shapeId;
-    }
-
-    public void setShapeId(Integer shapeId) {
         this.shapeId = shapeId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        EdgeEntity that = (EdgeEntity) o;
-
-        if (edgeId != that.edgeId) return false;
-        if (startX != null ? !startX.equals(that.startX) : that.startX != null) return false;
-        if (startY != null ? !startY.equals(that.startY) : that.startY != null) return false;
-        if (endX != null ? !endX.equals(that.endX) : that.endX != null) return false;
-        if (endY != null ? !endY.equals(that.endY) : that.endY != null) return false;
-        if (shapeId != null ? !shapeId.equals(that.shapeId) : that.shapeId != null) return false;
-
-        return true;
+    public EdgeEntity(EdgeModel EdgeModel, Object... objects) {
+        this.edgeId = EdgeModel.getEdgeId();
+        this.startX = EdgeModel.getStartX();
+        this.endX = EdgeModel.getEndX();
+        this.startY = EdgeModel.getStartY();
+        this.endY = EdgeModel.getEndY();
+        this.shapeId = EdgeModel.getShapeId();
+        for (Object object : objects) {
+            if (object instanceof EdgeModel) {
+                this.shapeEntity = new ShapeEntity(EdgeModel.getShapeByShapeId());
+            }
+        }
     }
 
-    @Override
-    public int hashCode() {
-        int result = edgeId;
-        result = 31 * result + (startX != null ? startX.hashCode() : 0);
-        result = 31 * result + (startY != null ? startY.hashCode() : 0);
-        result = 31 * result + (endX != null ? endX.hashCode() : 0);
-        result = 31 * result + (endY != null ? endY.hashCode() : 0);
-        result = 31 * result + (shapeId != null ? shapeId.hashCode() : 0);
-        return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "shapeId", referencedColumnName = "shapeId", insertable=false, updatable=false)
-    public ShapeEntity getShapeByShapeId() {
-        return shapeByShapeId;
-    }
-
-    public void setShapeByShapeId(ShapeEntity shapeByShapeId) {
-        this.shapeByShapeId = shapeByShapeId;
+    public EdgeModel toEntity() {
+        EdgeModel EdgeModel = new EdgeModel();
+        EdgeModel.setEdgeId(edgeId);
+        EdgeModel.setStartX(startX);
+        EdgeModel.setEndX(endX);
+        EdgeModel.setStartY(startY);
+        EdgeModel.setEndY(endY);
+        EdgeModel.setShapeId(shapeId);
+        if (shapeEntity != null) EdgeModel.setShapeByShapeId(shapeEntity.toEntity());
+        return EdgeModel;
     }
 }
