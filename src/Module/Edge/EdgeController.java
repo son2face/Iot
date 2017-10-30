@@ -38,7 +38,7 @@ public class EdgeController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public EdgeEntity create(EdgeEntity edgeEntity) {
         return edgeService.create(edgeEntity);
     }

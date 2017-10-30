@@ -63,9 +63,10 @@ public class FileService {
         try {
             tx = session.beginTransaction();
             FileEntity fileEntity = new FileEntity(fileId, name, data, createdTime, type, expiredTime,userId);
-            int id = Integer.valueOf(String.valueOf(session.save(fileEntity.toEntity())));
+            FileModel fileModel = fileEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(fileModel)));
             tx.commit();
-            FileEntity result = get(id);
+            FileEntity result = new FileEntity(fileModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -81,9 +82,10 @@ public class FileService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(fileEntity.toEntity())));
+            FileModel fileModel = fileEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(fileModel)));
             tx.commit();
-            FileEntity result = get(id);
+            FileEntity result = new FileEntity(fileModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

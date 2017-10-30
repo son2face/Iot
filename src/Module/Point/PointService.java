@@ -60,9 +60,10 @@ public class PointService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(pointEntity.toEntity())));
+            PointModel pointModel = pointEntity.toEntity();
+            Object o = session.save(pointModel);
             tx.commit();
-            PointEntity result = get(id);
+            PointEntity result = new PointEntity(pointModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -79,9 +80,10 @@ public class PointService {
         try {
             tx = session.beginTransaction();
             PointEntity pointEntity = new PointEntity(pointId, x, y, problemId);
-            int id = Integer.valueOf(String.valueOf(session.save(pointEntity.toEntity())));
+            PointModel pointModel = pointEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(pointModel)));
             tx.commit();
-            PointEntity result = get(id);
+            PointEntity result = new PointEntity(pointModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

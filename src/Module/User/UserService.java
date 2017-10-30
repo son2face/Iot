@@ -62,9 +62,10 @@ public class UserService {
         try {
             tx = session.beginTransaction();
             UserEntity userEntity = new UserEntity(userId, userName, passWord);
-            int id = Integer.valueOf(String.valueOf(session.save(userEntity.toEntity())));
+            UserModel userModel = userEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(userModel)));
             tx.commit();
-            UserEntity result = get(id);
+            UserEntity result = new UserEntity(userModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -80,9 +81,10 @@ public class UserService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(userEntity.toEntity())));
+            UserModel userModel = userEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(userModel)));
             tx.commit();
-            UserEntity result = get(id);
+            UserEntity result = new UserEntity(userModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

@@ -38,7 +38,7 @@ public class ProblemController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public ProblemEntity create(ProblemEntity problemEntity) {
         return problemService.create(problemEntity);
     }

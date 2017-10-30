@@ -62,9 +62,10 @@ public class ProblemService {
         try {
             tx = session.beginTransaction();
             ProblemEntity problemEntity = new ProblemEntity(problemId, status, fileId, userId);
-            int id = Integer.valueOf(String.valueOf(session.save(problemEntity.toEntity())));
+            ProblemModel problemModel= problemEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(problemModel)));
             tx.commit();
-            ProblemEntity result = get(id);
+            ProblemEntity result = new ProblemEntity(problemModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -80,9 +81,10 @@ public class ProblemService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(problemEntity.toEntity())));
+            ProblemModel problemModel= problemEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(problemModel)));
             tx.commit();
-            ProblemEntity result = get(id);
+            ProblemEntity result = new ProblemEntity(problemModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

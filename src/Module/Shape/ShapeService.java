@@ -62,9 +62,10 @@ public class ShapeService {
         try {
             tx = session.beginTransaction();
             ShapeEntity shapeEntity = new ShapeEntity(shapeId, problemId, level, userId);
-            int id = Integer.valueOf(String.valueOf(session.save(shapeEntity.toEntity())));
+            ShapeModel shapeModel =shapeEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(shapeModel)));
             tx.commit();
-            ShapeEntity result = get(id);
+            ShapeEntity result = new ShapeEntity(shapeModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -80,9 +81,10 @@ public class ShapeService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(shapeEntity.toEntity())));
+            ShapeModel shapeModel =shapeEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(shapeModel)));
             tx.commit();
-            ShapeEntity result = get(id);
+            ShapeEntity result = new ShapeEntity(shapeModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

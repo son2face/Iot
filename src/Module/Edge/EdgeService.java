@@ -62,9 +62,10 @@ public class EdgeService {
         try {
             tx = session.beginTransaction();
             EdgeEntity edgeEntity = new EdgeEntity(edgeId, startX, startY, endX, endY, shapeId);
-            int id = Integer.valueOf(String.valueOf(session.save(edgeEntity.toEntity())));
+            EdgeModel edgeModel = edgeEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(edgeModel)));
             tx.commit();
-            EdgeEntity result = get(id);
+            EdgeEntity result = new EdgeEntity(edgeModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();
@@ -80,9 +81,10 @@ public class EdgeService {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            int id = Integer.valueOf(String.valueOf(session.save(edgeEntity.toEntity())));
+            EdgeModel edgeModel = edgeEntity.toEntity();
+            Integer.valueOf(String.valueOf(session.save(edgeModel)));
             tx.commit();
-            EdgeEntity result = get(id);
+            EdgeEntity result = new EdgeEntity(edgeModel);
             return result;
         } catch (HibernateException e) {
             if (tx != null) tx.rollback();

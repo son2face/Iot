@@ -38,7 +38,7 @@ public class FileController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public FileEntity create(FileEntity fileEntity) {
         return fileService.create(fileEntity);
     }

@@ -23,14 +23,12 @@ public class DatabaseController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("")
     public String get(@Context HttpHeaders headers) {
         return databaseService.get().toString();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("")
     public String post(@Context HttpHeaders headers, @FormParam("url") String url, @FormParam("username") String username, @FormParam("password") String password, @FormParam("dbName") String dbName, @FormParam("type") int type) {
         JSONObject x = new JSONObject();
         if (databaseService.create(url, username, password, dbName, type)) {
@@ -43,7 +41,6 @@ public class DatabaseController {
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("")
     public String put(@Context HttpHeaders headers, @FormDataParam("url") String url, @FormDataParam("username") String username, @FormDataParam("password") String password, @FormDataParam("dbName") String dbName, @FormDataParam("type") int type, @FormDataParam("id") int id) {
         JSONObject x = new JSONObject();
         if (databaseService.update(id, url, username, password, dbName, type)) {

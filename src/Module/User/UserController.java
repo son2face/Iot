@@ -38,7 +38,7 @@ public class UserController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public UserEntity create(UserEntity userEntity) {
         return userService.create(userEntity);
     }

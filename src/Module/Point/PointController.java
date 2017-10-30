@@ -38,7 +38,7 @@ public class PointController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public PointEntity create(PointEntity pointEntity) {
         return pointService.create(pointEntity);
     }
