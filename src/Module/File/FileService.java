@@ -57,12 +57,12 @@ public class FileService {
         }
     }
 
-    public FileModel create(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime) {
+    public FileModel create(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime);
+            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime,userId);
             int id = Integer.valueOf(String.valueOf(session.save(fileModel.toEntity())));
             tx.commit();
             FileModel result = get(id);
@@ -94,12 +94,12 @@ public class FileService {
         return null;
     }
 
-    public FileModel update(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime) {
+    public FileModel update(int fileId, String name, byte[] data, Timestamp createdTime, String type, Timestamp expiredTime, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime);
+            FileModel fileModel = new FileModel(fileId, name, data, createdTime, type, expiredTime,userId);
             session.update(fileModel.toEntity());
             tx.commit();
             FileModel result = get(fileId);

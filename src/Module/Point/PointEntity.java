@@ -1,5 +1,7 @@
 package Module.Point;
 
+import Module.Problem.ProblemEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,6 +10,8 @@ public class PointEntity {
     private int pointId;
     private Integer x;
     private Integer y;
+    private Integer problemId;
+    private ProblemEntity problemByProblemId;
 
     @Id
     @Column(name = "pointId", nullable = false)
@@ -39,6 +43,16 @@ public class PointEntity {
         this.y = y;
     }
 
+    @Basic
+    @Column(name = "problemId", nullable = true)
+    public Integer getProblemId() {
+        return problemId;
+    }
+
+    public void setProblemId(Integer problemId) {
+        this.problemId = problemId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,6 +63,7 @@ public class PointEntity {
         if (pointId != that.pointId) return false;
         if (x != null ? !x.equals(that.x) : that.x != null) return false;
         if (y != null ? !y.equals(that.y) : that.y != null) return false;
+        if (problemId != null ? !problemId.equals(that.problemId) : that.problemId != null) return false;
 
         return true;
     }
@@ -58,6 +73,17 @@ public class PointEntity {
         int result = pointId;
         result = 31 * result + (x != null ? x.hashCode() : 0);
         result = 31 * result + (y != null ? y.hashCode() : 0);
+        result = 31 * result + (problemId != null ? problemId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "problemId", referencedColumnName = "problemId", insertable=false, updatable=false)
+    public ProblemEntity getProblemByProblemId() {
+        return problemByProblemId;
+    }
+
+    public void setProblemByProblemId(ProblemEntity problemByProblemId) {
+        this.problemByProblemId = problemByProblemId;
     }
 }

@@ -56,12 +56,12 @@ public class ShapeService {
         }
     }
 
-    public ShapeModel create(int shapeId, Integer level) {
+    public ShapeModel create(int shapeId, Integer problemId, Integer level, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ShapeModel shapeModel = new ShapeModel(shapeId, level);
+            ShapeModel shapeModel = new ShapeModel(shapeId, problemId, level, userId);
             int id = Integer.valueOf(String.valueOf(session.save(shapeModel.toEntity())));
             tx.commit();
             ShapeModel result = get(id);
@@ -93,12 +93,12 @@ public class ShapeService {
         return null;
     }
 
-    public ShapeModel update(int shapeId, Integer level) {
+    public ShapeModel update(int shapeId, Integer problemId, Integer level, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ShapeModel shapeModel = new ShapeModel(shapeId, level);
+            ShapeModel shapeModel = new ShapeModel(shapeId, problemId, level, userId);
             session.update(shapeModel.toEntity());
             tx.commit();
             ShapeModel result = get(shapeId);

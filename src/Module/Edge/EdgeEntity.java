@@ -1,5 +1,7 @@
 package Module.Edge;
 
+import Module.Shape.ShapeEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,8 @@ public class EdgeEntity {
     private Double startY;
     private Double endX;
     private Double endY;
+    private Integer shapeId;
+    private ShapeEntity shapeByShapeId;
 
     @Id
     @Column(name = "edgeId", nullable = false)
@@ -61,6 +65,16 @@ public class EdgeEntity {
         this.endY = endY;
     }
 
+    @Basic
+    @Column(name = "shapeId", nullable = true)
+    public Integer getShapeId() {
+        return shapeId;
+    }
+
+    public void setShapeId(Integer shapeId) {
+        this.shapeId = shapeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +87,7 @@ public class EdgeEntity {
         if (startY != null ? !startY.equals(that.startY) : that.startY != null) return false;
         if (endX != null ? !endX.equals(that.endX) : that.endX != null) return false;
         if (endY != null ? !endY.equals(that.endY) : that.endY != null) return false;
+        if (shapeId != null ? !shapeId.equals(that.shapeId) : that.shapeId != null) return false;
 
         return true;
     }
@@ -84,6 +99,17 @@ public class EdgeEntity {
         result = 31 * result + (startY != null ? startY.hashCode() : 0);
         result = 31 * result + (endX != null ? endX.hashCode() : 0);
         result = 31 * result + (endY != null ? endY.hashCode() : 0);
+        result = 31 * result + (shapeId != null ? shapeId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "shapeId", referencedColumnName = "shapeId", insertable=false, updatable=false)
+    public ShapeEntity getShapeByShapeId() {
+        return shapeByShapeId;
+    }
+
+    public void setShapeByShapeId(ShapeEntity shapeByShapeId) {
+        this.shapeByShapeId = shapeByShapeId;
     }
 }

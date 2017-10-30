@@ -1,9 +1,5 @@
 package Module.Shape;
 
-import Module.Shape.ShapeModel;
-import Module.Shape.ShapeService;
-import Module.Shape.SearchShapeModel;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,9 +17,15 @@ public class ShapeController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<ShapeModel> get(SearchShapeModel searchShapeModel) {
+    public List<ShapeModel> get(@BeanParam SearchShapeModel searchShapeModel) {
         return shapeService.get(searchShapeModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchShapeModel searchShapeModel) {
+        return 100;
     }
 
     @GET
@@ -36,8 +38,7 @@ public class ShapeController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
+    @Consumes(MediaType.APPLICATION_JSON)
     public ShapeModel create(ShapeModel shapeModel) {
         return shapeService.create(shapeModel);
     }

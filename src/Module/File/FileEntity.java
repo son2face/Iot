@@ -1,8 +1,12 @@
 package Module.File;
 
+import Module.Problem.ProblemEntity;
+import Module.User.UserEntity;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 @Table(name = "file", schema = "intelligent", catalog = "")
@@ -13,6 +17,9 @@ public class FileEntity {
     private Timestamp createdTime;
     private String type;
     private Timestamp expiredTime;
+    private Integer userId;
+    private UserEntity userByUserId;
+    private Collection<ProblemEntity> problemsByFileId;
 
     @Id
     @Column(name = "fileId", nullable = false)
@@ -74,6 +81,16 @@ public class FileEntity {
         this.expiredTime = expiredTime;
     }
 
+    @Basic
+    @Column(name = "userId", nullable = true)
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,6 +104,7 @@ public class FileEntity {
         if (createdTime != null ? !createdTime.equals(that.createdTime) : that.createdTime != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (expiredTime != null ? !expiredTime.equals(that.expiredTime) : that.expiredTime != null) return false;
+        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
     }
@@ -99,6 +117,26 @@ public class FileEntity {
         result = 31 * result + (createdTime != null ? createdTime.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (expiredTime != null ? expiredTime.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userId", referencedColumnName = "userId", insertable=false, updatable=false)
+    public UserEntity getUserByUserId() {
+        return userByUserId;
+    }
+
+    public void setUserByUserId(UserEntity userByUserId) {
+        this.userByUserId = userByUserId;
+    }
+
+    @OneToMany(mappedBy = "fileByFileId")
+    public Collection<ProblemEntity> getProblemsByFileId() {
+        return problemsByFileId;
+    }
+
+    public void setProblemsByFileId(Collection<ProblemEntity> problemsByFileId) {
+        this.problemsByFileId = problemsByFileId;
     }
 }

@@ -17,9 +17,15 @@ public class FileController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<FileModel> get(SearchFileModel searchFileModel) {
+    public List<FileModel> get(@BeanParam SearchFileModel searchFileModel) {
         return fileService.get(searchFileModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchFileModel searchFileModel) {
+        return 100;
     }
 
     @GET
@@ -33,7 +39,6 @@ public class FileController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
     public FileModel create(FileModel fileModel) {
         return fileService.create(fileModel);
     }

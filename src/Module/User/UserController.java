@@ -17,9 +17,15 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<UserModel> get(SearchUserModel searchUserModel) {
+    public List<UserModel> get(@BeanParam SearchUserModel searchUserModel) {
         return userService.get(searchUserModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchUserModel searchUserModel) {
+        return 100;
     }
 
     @GET
@@ -33,7 +39,6 @@ public class UserController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
     public UserModel create(UserModel userModel) {
         return userService.create(userModel);
     }

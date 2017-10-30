@@ -1,5 +1,7 @@
 package Module.Edge;
 
+import Module.Shape.ShapeModel;
+
 import java.io.Serializable;
 
 /*
@@ -8,23 +10,25 @@ import java.io.Serializable;
  * and open the template in the editor.
  */
 public class EdgeModel implements Serializable {
-
     public int edgeId;
     public Double startX;
     public Double startY;
     public Double endX;
     public Double endY;
+    public Integer shapeId;
+    public ShapeModel shapeModel;
 
 
     public EdgeModel() {
     }
 
-    public EdgeModel(int edgeId, Double startX, Double startY, Double endX, Double endY) {
+    public EdgeModel(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         this.edgeId = edgeId;
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
         this.endY = endY;
+        this.shapeId = shapeId;
     }
 
     public EdgeModel(EdgeEntity EdgeEntity) {
@@ -33,6 +37,8 @@ public class EdgeModel implements Serializable {
         this.endX = EdgeEntity.getEndX();
         this.startY = EdgeEntity.getStartY();
         this.endY = EdgeEntity.getEndY();
+        this.shapeId = EdgeEntity.getShapeId();
+        this.shapeModel = new ShapeModel(EdgeEntity.getShapeByShapeId());
     }
 
     public EdgeEntity toEntity() {
@@ -42,6 +48,8 @@ public class EdgeModel implements Serializable {
         EdgeEntity.setEndX(endX);
         EdgeEntity.setStartY(startY);
         EdgeEntity.setEndY(endY);
+        EdgeEntity.setShapeId(shapeId);
+        EdgeEntity.setShapeByShapeId(shapeModel.toEntity());
         return EdgeEntity;
     }
 }

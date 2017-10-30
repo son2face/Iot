@@ -73,12 +73,12 @@ public class PointService {
         return null;
     }
 
-    public PointModel create(int pointId, Integer x, Integer y) {
+    public PointModel create(int pointId, Integer x, Integer y, Integer problemId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            PointModel pointModel = new PointModel(pointId, x, y);
+            PointModel pointModel = new PointModel(pointId, x, y, problemId);
             int id = Integer.valueOf(String.valueOf(session.save(pointModel.toEntity())));
             tx.commit();
             PointModel result = get(id);
@@ -92,12 +92,12 @@ public class PointService {
         return null;
     }
 
-    public PointModel update(int pointId, Integer x, Integer y) {
+    public PointModel update(int pointId, Integer x, Integer y, Integer problemId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            PointModel pointModel = new PointModel(pointId, x, y);
+            PointModel pointModel = new PointModel(pointId, x, y, problemId);
             session.update(pointModel.toEntity());
             tx.commit();
             PointModel result = get(pointId);

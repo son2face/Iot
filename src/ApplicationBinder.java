@@ -22,5 +22,6 @@ public class ApplicationBinder extends AbstractBinder {
         bind(new ProblemService()).to(ProblemService.class);
         bind(new ShapeService()).to(ShapeService.class);
         bind(new UserService()).to(UserService.class);
+        bind(new PointService()).to(PointService.class);
     }
 }

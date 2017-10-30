@@ -6,16 +6,15 @@ import Manager.Interface.IDatabaseService;
 import Manager.Service.DatabaseControllService;
 import Manager.Service.DatabaseService;
 import com.google.common.collect.Lists;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
-import org.hibernate.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +42,6 @@ public class EdgeService {
     }
 
 
-
     public EdgeModel get(int id) {
         Session session = factory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -58,12 +56,12 @@ public class EdgeService {
         }
     }
 
-    public EdgeModel create(int edgeId, Double startX, Double startY, Double endX, Double endY) {
+    public EdgeModel create(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY);
+            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY, shapeId);
             int id = Integer.valueOf(String.valueOf(session.save(edgeModel.toEntity())));
             tx.commit();
             EdgeModel result = get(id);
@@ -95,12 +93,12 @@ public class EdgeService {
         return null;
     }
 
-    public EdgeModel update(int edgeId, Double startX, Double startY, Double endX, Double endY) {
+    public EdgeModel update(int edgeId, Double startX, Double startY, Double endX, Double endY, Integer shapeId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY);
+            EdgeModel edgeModel = new EdgeModel(edgeId, startX, startY, endX, endY, shapeId);
             session.update(edgeModel.toEntity());
             tx.commit();
             EdgeModel result = get(edgeId);
@@ -131,6 +129,7 @@ public class EdgeService {
         }
         return null;
     }
+
     public boolean delete(int id) {
         Session session = factory.openSession();
         Transaction tx = null;

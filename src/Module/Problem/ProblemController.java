@@ -17,9 +17,15 @@ public class ProblemController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<ProblemModel> get(SearchProblemModel searchProblemModel) {
+    public List<ProblemModel> get(@BeanParam SearchProblemModel searchProblemModel) {
         return problemService.get(searchProblemModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchProblemModel searchProblemModel) {
+        return 100;
     }
 
     @GET
@@ -33,7 +39,6 @@ public class ProblemController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
     public ProblemModel create(ProblemModel problemModel) {
         return problemService.create(problemModel);
     }

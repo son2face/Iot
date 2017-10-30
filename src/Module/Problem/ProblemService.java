@@ -56,12 +56,12 @@ public class ProblemService {
         }
     }
 
-    public ProblemModel create(int problemId, String status) {
+    public ProblemModel create(int problemId, String status, Integer fileId, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ProblemModel problemModel = new ProblemModel(problemId, status);
+            ProblemModel problemModel = new ProblemModel(problemId, status, fileId, userId);
             int id = Integer.valueOf(String.valueOf(session.save(problemModel.toEntity())));
             tx.commit();
             ProblemModel result = get(id);
@@ -93,12 +93,12 @@ public class ProblemService {
         return null;
     }
 
-    public ProblemModel update(int problemId, String status) {
+    public ProblemModel update(int problemId, String status, Integer fileId, Integer userId) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            ProblemModel problemModel = new ProblemModel(problemId, status);
+            ProblemModel problemModel = new ProblemModel(problemId, status, fileId, userId);
             session.update(problemModel.toEntity());
             tx.commit();
             ProblemModel result = get(problemId);

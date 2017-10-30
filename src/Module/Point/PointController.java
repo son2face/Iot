@@ -1,9 +1,5 @@
 package Module.Point;
 
-import Module.Point.PointModel;
-import Module.Point.PointService;
-import Module.Point.SearchPointModel;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,9 +17,15 @@ public class PointController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<PointModel> get(SearchPointModel searchPointModel) {
+    public List<PointModel> get(@BeanParam SearchPointModel searchPointModel) {
         return pointService.get(searchPointModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchPointModel searchPointModel) {
+        return 100;
     }
 
     @GET
@@ -37,7 +39,6 @@ public class PointController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
     public PointModel create(PointModel pointModel) {
         return pointService.create(pointModel);
     }

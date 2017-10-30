@@ -17,9 +17,15 @@ public class EdgeController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
-    public List<EdgeModel> get(SearchEdgeModel searchEdgeModel) {
+    public List<EdgeModel> get(@BeanParam SearchEdgeModel searchEdgeModel) {
         return edgeService.get(searchEdgeModel);
+    }
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Count")
+    public int count(@BeanParam SearchEdgeModel searchEdgeModel) {
+        return 100;
     }
 
     @GET
@@ -32,8 +38,7 @@ public class EdgeController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("")
+    @Consumes(MediaType.APPLICATION_JSON)
     public EdgeModel create(EdgeModel edgeModel) {
         return edgeService.create(edgeModel);
     }

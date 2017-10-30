@@ -1,6 +1,11 @@
 package Module.User;
 
+import Module.File.FileEntity;
+import Module.Problem.ProblemEntity;
+import Module.Shape.ShapeEntity;
+
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user", schema = "intelligent", catalog = "")
@@ -8,6 +13,9 @@ public class UserEntity {
     private int userId;
     private String userName;
     private String passWord;
+    private Collection<FileEntity> filesByUserId;
+    private Collection<ProblemEntity> problemsByUserId;
+    private Collection<ShapeEntity> shapesByUserId;
 
     @Id
     @Column(name = "userId", nullable = false)
@@ -59,5 +67,32 @@ public class UserEntity {
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (passWord != null ? passWord.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<FileEntity> getFilesByUserId() {
+        return filesByUserId;
+    }
+
+    public void setFilesByUserId(Collection<FileEntity> filesByUserId) {
+        this.filesByUserId = filesByUserId;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<ProblemEntity> getProblemsByUserId() {
+        return problemsByUserId;
+    }
+
+    public void setProblemsByUserId(Collection<ProblemEntity> problemsByUserId) {
+        this.problemsByUserId = problemsByUserId;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<ShapeEntity> getShapesByUserId() {
+        return shapesByUserId;
+    }
+
+    public void setShapesByUserId(Collection<ShapeEntity> shapesByUserId) {
+        this.shapesByUserId = shapesByUserId;
     }
 }
