@@ -1,0 +1,7 @@
+<urlrewrite>
+    <rule match-type="regex">
+        <condition type="request-uri" operator="notequal">^/(index.html|api|Angular4)</condition>
+        <from>^/(.*)$</from>
+        <to type="passthrough">/index.html</to>
+    </rule>
+</urlrewrite>
