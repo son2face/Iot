@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="2" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f24b2b57-f072-4db1-a54d-4dd7b7da7e4c" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Node.Service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeValue.Component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="53" column="60" lean-forward="false" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeValue.Component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.Entity.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.Component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeValue.Component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2023">
+              <caret line="119" column="57" lean-forward="false" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
+              <folding>
+                <element signature="n#style#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.Component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeValue.Service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.Component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1649">
+              <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1509607106000" expanded="false" signature="1883:1904" ph="..." />
+                <marker date="1509607106000" expanded="false" signature="2123:2144" ph="..." />
+                <marker date="1509607106000" expanded="false" signature="2641:2662" ph="..." />
+                <marker date="1509607106000" expanded="false" signature="2883:2904" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Route.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Route.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="33" column="19" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+              <folding>
+                <element signature="e#506#566#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>window</find>
+      <find>Dis</find>
+      <find>w</find>
+      <find>verti</find>
+      <find>times</find>
+      <find>GetU</find>
+      <find>Tric</find>
+      <find>Cart</find>
+      <find>rowspan=&quot;2&quot;</find>
+      <find>OrganizationUnitEntity.Name</find>
+      <find>OrganizationEntity.Name</find>
+      <find>Vui lon</find>
+      <find>TrickTo</find>
+      <find>Error</find>
+      <find>PO</find>
+      <find>50px</find>
+      <find>5</find>
+      <find>b&gt;</find>
+      <find>img</find>
+      <find>logo-ft</find>
+      <find>media-he</find>
+      <find>radius</find>
+      <find>lo</find>
+      <find>text-mu</find>
+      <find>Xem</find>
+      <find>(data: any)</find>
+      <find>scope=&quot;row&quot;</find>
+      <find>prompt SearchBox</find>
+      <find>.Id</find>
+      <find>id</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>v</replace>
+      <replace>105px</replace>
+      <replace>120px</replace>
+      <replace>.Take = 1000;</replace>
+      <replace>RFQDetailEntity.</replace>
+      <replace>class=&quot;text-red&quot;</replace>
+      <replace>class=&quot;text-danger&quot;</replace>
+      <replace>&quot;&quot;</replace>
+      <replace>ngModel</replace>
+      <replace>(ngModel)</replace>
+      <replace>[ngClass]=&quot;{'list-group-item':true,'li-selected' : Item.IsSelected, 'li-active' :  Item.IsActive}&quot;</replace>
+      <replace>IsSelected</replace>
+      <replace>(241,241,241)</replace>
+      <replace>Category</replace>
+      <replace>POSearch</replace>
+      <replace>SearchPO</replace>
+      <replace>PO</replace>
+      <replace>User</replace>
+      <replace>UserEntity</replace>
+      <replace>MasterContract</replace>
+      <replace>rowspan=&quot;1&quot;</replace>
+      <replace>logo-fpt2</replace>
+      <replace>(data: EdgeEntity)</replace>
+      <replace>(data: FileEntity)</replace>
+      <replace>(data: ProblemEntity)</replace>
+      <replace>(data: ShapeEntity)</replace>
+      <replace>(data: UserEntity)</replace>
+      <replace>(data: PointEntity)</replace>
+      <replace>form-control</replace>
+      <replace>.id</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/shape/shape.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/shape/shape.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/edge/edge.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/shape/shape.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/edge/edge.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/shape/shape.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Home/Home.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/edge/edge.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/file/file.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/point/point.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/problem/problem.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/shape/shape.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/edge/edge.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.SearchEntity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/user/user.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Shared/Header/Header.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Home/Home.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Node/Node.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/Shared/Header/Header.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Node/Node.Service.ts" />
+        <option value="$PROJECT_DIR$/src/app/Route.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Node/Node.Entity.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/Node/Node.Component.html" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.ts" />
+        <option value="$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Service.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="461" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="file" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="Node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="NodeValue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Shared" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/FAMS/FAMS/FAMS.UI/Angular4" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="typescript-compiler-editor-notification" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\sources\Iot\web\Angular4\src\app\Modules\NodeValue" />
+      <recent name="H:\sources\Iot\web\Angular4\src\app\Modules" />
+      <recent name="C:\Users\Son\Desktop\FAMS\FAMS\FAMS.UI\Angular4\src\app\Modules\MasterContract\Modify" />
+      <recent name="C:\Users\Son\Desktop\FAMS\FAMS\FAMS.UI\Angular4\src\app\Modules\RFQ\RFQStep1" />
+      <recent name="C:\Users\Son\Desktop\FAMS\FAMS\FAMS.UI\Angular4\src\app\Modules\MasterContract\View" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\sources\Iot\web\Angular4\src\app\Modules" />
+      <recent name="C:\Users\Son\Desktop\Intelligent\web\Angular4\src\assets" />
+      <recent name="C:\Users\Son\Desktop\Intelligent\Angular4\src\app\Modules" />
+      <recent name="C:\Users\Son\Desktop\FAMS\FAMS\FAMS.UI\Angular4\src\app\Modules\Discussion" />
+      <recent name="C:\Users\Son\Desktop\FAMS\FAMS\FAMS.UI\Angular4\src\app\Modules" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.Test.html">
+    <configuration name="Test.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Angular4/Test.html" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Test.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f24b2b57-f072-4db1-a54d-4dd7b7da7e4c" name="Default" comment="" />
+      <created>1499921670689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1499921670689</updated>
+      <workItem from="1499921671975" duration="14464000" />
+      <workItem from="1499942647787" duration="17681000" />
+      <workItem from="1499964471958" duration="641000" />
+      <workItem from="1500014543507" duration="543000" />
+      <workItem from="1500213997137" duration="6564000" />
+      <workItem from="1500265007865" duration="19180000" />
+      <workItem from="1500352862787" duration="8769000" />
+      <workItem from="1500521309851" duration="3288000" />
+      <workItem from="1500581437390" duration="412000" />
+      <workItem from="1500582079088" duration="22817000" />
+      <workItem from="1500983658959" duration="17548000" />
+      <workItem from="1501070553088" duration="7807000" />
+      <workItem from="1501079260367" duration="7465000" />
+      <workItem from="1501213260217" duration="5579000" />
+      <workItem from="1501397443330" duration="7134000" />
+      <workItem from="1501470256924" duration="1889000" />
+      <workItem from="1501507698555" duration="1358000" />
+      <workItem from="1501555529227" duration="8565000" />
+      <workItem from="1501595140123" duration="1210000" />
+      <workItem from="1501596637339" duration="302000" />
+      <workItem from="1501731956019" duration="3841000" />
+      <workItem from="1501819910528" duration="14184000" />
+      <workItem from="1501864473634" duration="15493000" />
+      <workItem from="1501995572120" duration="23000" />
+      <workItem from="1501995630855" duration="9590000" />
+      <workItem from="1502008552562" duration="11372000" />
+      <workItem from="1502026553672" duration="2811000" />
+      <workItem from="1502297820831" duration="11526000" />
+      <workItem from="1502347559496" duration="3363000" />
+      <workItem from="1502521790104" duration="957000" />
+      <workItem from="1503804072430" duration="4929000" />
+      <workItem from="1504668735088" duration="1386000" />
+      <workItem from="1504674664866" duration="15742000" />
+      <workItem from="1504770271965" duration="1521000" />
+      <workItem from="1504833203274" duration="1024000" />
+      <workItem from="1504834376635" duration="14323000" />
+      <workItem from="1505115495088" duration="59291000" />
+      <workItem from="1505356941001" duration="21000" />
+      <workItem from="1505356982704" duration="36117000" />
+      <workItem from="1505560279842" duration="12988000" />
+      <workItem from="1505804939753" duration="15606000" />
+      <workItem from="1505821541198" duration="29061000" />
+      <workItem from="1505920149465" duration="4495000" />
+      <workItem from="1505960236116" duration="23278000" />
+      <workItem from="1505989191975" duration="2390000" />
+      <workItem from="1506003989810" duration="19643000" />
+      <workItem from="1506409643515" duration="14650000" />
+      <workItem from="1506571105043" duration="30925000" />
+      <workItem from="1506648240172" duration="13509000" />
+      <workItem from="1506922486829" duration="10594000" />
+      <workItem from="1506993412636" duration="946000" />
+      <workItem from="1507039860390" duration="15314000" />
+      <workItem from="1507174993618" duration="38344000" />
+      <workItem from="1507526585918" duration="4654000" />
+      <workItem from="1507534641954" duration="12569000" />
+      <workItem from="1507627432255" duration="4094000" />
+      <workItem from="1507632288258" duration="19421000" />
+      <workItem from="1507965848195" duration="109237000" />
+      <workItem from="1508742683345" duration="20576000" />
+      <workItem from="1508909583540" duration="3985000" />
+      <workItem from="1508929724821" duration="7936000" />
+      <workItem from="1509341919742" duration="2085000" />
+      <workItem from="1509361486590" duration="6844000" />
+      <workItem from="1509429224992" duration="601000" />
+      <workItem from="1509436116451" duration="82000" />
+      <workItem from="1509437316054" duration="557000" />
+      <workItem from="1509439965376" duration="3035000" />
+      <workItem from="1509448079086" duration="59000" />
+      <workItem from="1509601000041" duration="7073000" />
+      <workItem from="1509765893862" duration="1023000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="799998000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27135417" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24602333" sideWeight="0.14739583" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.85260415" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.640509" sideWeight="0.48958334" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="23" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/file/file.Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/point/point.Entity.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/problem/problem.Entity.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/shape/shape.Entity.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/user/user.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="35" column="57" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/problem/problem.Component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/point/point.Component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/file/file.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/shape/shape.SearchEntity.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Shared/Filter.Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Shared/HttpService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/http/src/base_request_options.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1579">
+          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/shape/shape.Component.ts" />
+    <entry file="file://$PROJECT_DIR$/node_modules/ngvas/lib/components/ngvas-polygon.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngvas/lib/canvas/shapes/interfaces.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Home/Home.Component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngvas/lib/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="51" column="34" lean-forward="false" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngvas/lib/canvas/shapes/PolyShape.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Home/Home.Component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/problem/problem.Component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/shape/shape.Component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/edge/edge.SearchEntity.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/edge/edge.Service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/edge/edge.Component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/problem/problem.Service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/shape/shape.Service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/point/point.Service.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/file/file.Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="64" column="58" lean-forward="false" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/edge/edge.Component.css" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/edge/edge.Component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.SearchEntity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/user/user.Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Home/Home.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/user/user.Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#17#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Home/Home.Component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="92" column="63" lean-forward="false" selection-start-line="92" selection-start-column="63" selection-end-line="92" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Shared/Header/Header.Component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="6" lean-forward="false" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Shared/Header/Header.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Route.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="33" column="19" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <folding>
+            <element signature="e#506#566#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/Node/Node.Component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1509607106000" expanded="false" signature="1883:1904" ph="..." />
+            <marker date="1509607106000" expanded="false" signature="2123:2144" ph="..." />
+            <marker date="1509607106000" expanded="false" signature="2641:2662" ph="..." />
+            <marker date="1509607106000" expanded="false" signature="2883:2904" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="53" column="60" lean-forward="false" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="57" lean-forward="false" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Modules/NodeValue/NodeValue.Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
