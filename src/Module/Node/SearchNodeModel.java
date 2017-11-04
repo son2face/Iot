@@ -1,11 +1,8 @@
-package Module.Edge;
+package Module.Node;
 
-import javax.persistence.*;
 import javax.ws.rs.QueryParam;
 
-@Entity
-@Table(name = "edge", schema = "intelligent", catalog = "")
-public class SearchEdgeModel {
+public class SearchNodeModel {
     @QueryParam("edgeId")private int edgeId;
     @QueryParam("startX") private Double startX;
     @QueryParam("startY") private Double startY;

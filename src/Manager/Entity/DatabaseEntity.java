@@ -3,7 +3,9 @@ package Manager.Entity;
 import Manager.Interface.IDatabaseEntity;
 import Manager.Model.DatabaseModel;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,33 +47,35 @@ public class DatabaseEntity implements IDatabaseEntity {
         }
         databaseModels = new ArrayList<>();
         int i = 0;
-        while (input.hasNext()) {
-            int typeDB = input.nextInt();
-            input.nextLine();
-            String url = input.nextLine();
-            String databaseName = input.nextLine();
-            String username = input.nextLine();
-            String password = input.nextLine();
-            DatabaseModel databaseModel = new DatabaseModel(i, typeDB, url, databaseName, username, password);
-            databaseModels.add(databaseModel);
-            i++;
+        try {
+            while (input.hasNext()) {
+                int typeDB = input.nextInt();
+                input.nextLine();
+                String url = input.nextLine();
+                String databaseName = input.nextLine();
+                String username = input.nextLine();
+                String password = input.nextLine();
+                DatabaseModel databaseModel = new DatabaseModel(i, typeDB, url, databaseName, username, password);
+                databaseModels.add(databaseModel);
+                i++;
+            }
+        } catch (Exception e) {
+
         }
         id = databaseModels.size();
     }
 
     public static void saveData() throws IOException {
         File statText = new File(fileDir);
-        FileOutputStream is = new FileOutputStream(statText);
-        OutputStreamWriter osw = new OutputStreamWriter(is);
-        Writer w = new BufferedWriter(osw);
+        PrintWriter writer = new PrintWriter(statText, "UTF-8");
         for (DatabaseModel x : databaseModels) {
-            w.write(x.typeDB + "\n");
-            w.write(x.url + "\n");
-            w.write(x.databaseName + "\n");
-            w.write(x.userName + "\n");
-            w.write(x.passWord + "\n");
+            writer.println(x.typeDB);
+            writer.println(x.url);
+            writer.println(x.databaseName);
+            writer.println(x.userName);
+            writer.println(x.passWord);
         }
-        w.close();
+        writer.close();
     }
 
     public static String getFileDir() {

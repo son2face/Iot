@@ -1,6 +1,5 @@
 package Module.File;
 
-import Module.Problem.ProblemModel;
 import Module.User.UserModel;
 
 import javax.persistence.*;
@@ -9,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
-@Table(name = "file", schema = "intelligent", catalog = "")
+@Table(name = "file", schema = "iot", catalog = "")
 public class FileModel {
     private int fileId;
     private String name;
@@ -19,7 +18,6 @@ public class FileModel {
     private Timestamp expiredTime;
     private Integer userId;
     private UserModel userByUserId;
-    private Collection<ProblemModel> problemsByFileId;
 
     @Id
     @Column(name = "fileId", nullable = false)
@@ -131,12 +129,5 @@ public class FileModel {
         this.userByUserId = userByUserId;
     }
 
-    @OneToMany(mappedBy = "fileByFileId")
-    public Collection<ProblemModel> getProblemsByFileId() {
-        return problemsByFileId;
-    }
 
-    public void setProblemsByFileId(Collection<ProblemModel> problemsByFileId) {
-        this.problemsByFileId = problemsByFileId;
-    }
 }

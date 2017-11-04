@@ -4,8 +4,6 @@ import Module.FilterModel;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "edge", schema = "intelligent", catalog = "")
 public class SearchFileModel extends FilterModel{
     private int edgeId;
     private Double startX;

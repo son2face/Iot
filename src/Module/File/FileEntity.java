@@ -1,7 +1,5 @@
 package Module.File;
 
-import Module.Problem.ProblemModel;
-import Module.Problem.ProblemEntity;
 import Module.User.UserModel;
 import Module.User.UserEntity;
 
@@ -26,7 +24,6 @@ public class FileEntity implements Serializable {
     public Timestamp expiredTime;
     public Integer userId;
     public UserEntity userEntity;
-    public List<ProblemEntity> problemEntityList;
 
 
     public FileEntity() {
@@ -54,8 +51,6 @@ public class FileEntity implements Serializable {
             if (object instanceof UserModel) {
                 this.userEntity = new UserEntity(FileModel.getUserByUserId());
             } else if (object instanceof Collection) {
-                if (object.getClass().getGenericSuperclass() instanceof ProblemModel)
-                    this.problemEntityList = FileModel.getProblemsByFileId().parallelStream().map(ProblemEntity::new).collect(Collectors.toList());
             }
         }
     }
@@ -70,8 +65,6 @@ public class FileEntity implements Serializable {
         FileModel.setExpiredTime(expiredTime);
         FileModel.setUserId(userId);
         if (userEntity != null) FileModel.setUserByUserId(userEntity.toEntity());
-        if (problemEntityList != null)
-            FileModel.setProblemsByFileId(problemEntityList.parallelStream().map(ProblemEntity::toEntity).collect(Collectors.toList()));
         return FileModel;
     }
 }

@@ -1,21 +1,17 @@
 package Module.User;
 
 import Module.File.FileModel;
-import Module.Problem.ProblemModel;
-import Module.Shape.ShapeModel;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "user", schema = "intelligent", catalog = "")
+@Table(name = "user", schema = "iot", catalog = "")
 public class UserModel {
     private int userId;
     private String userName;
     private String passWord;
     private Collection<FileModel> filesByUserId;
-    private Collection<ProblemModel> problemsByUserId;
-    private Collection<ShapeModel> shapesByUserId;
 
     @Id
     @Column(name = "userId", nullable = false)
@@ -78,21 +74,5 @@ public class UserModel {
         this.filesByUserId = filesByUserId;
     }
 
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<ProblemModel> getProblemsByUserId() {
-        return problemsByUserId;
-    }
 
-    public void setProblemsByUserId(Collection<ProblemModel> problemsByUserId) {
-        this.problemsByUserId = problemsByUserId;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<ShapeModel> getShapesByUserId() {
-        return shapesByUserId;
-    }
-
-    public void setShapesByUserId(Collection<ShapeModel> shapesByUserId) {
-        this.shapesByUserId = shapesByUserId;
-    }
 }
