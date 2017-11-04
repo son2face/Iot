@@ -1,12 +1,30 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Angular4</title>
+    <title>Iot</title>
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link href="/assets/toastr/ng2-toastr.min.css" rel="stylesheet"/>
+    <link rel="icon" type="image/x-icon" href="/assets/VNU-UET.jpg">
+    <!--<link rel="stylesheet" type="text/css" href="styles.css"/>-->
 </head>
 <body>
-<my-app></my-app>
+<div id="SpinnerBar">
+    <div class="SpinnerBarBackdrop"></div>
+    <div class="page-spinner-bar">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<my-app>
+    <div id="Loading">
+        <div class="loader">Loading...</div>
+    </div>
+</my-app>
 </body>
+</html>
