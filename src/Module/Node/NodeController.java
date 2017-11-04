@@ -29,14 +29,15 @@ public class NodeController {
         return 100;
     }
 
-    //
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Path("{nodeId}")
-//    public NodeEntity getId(@PathParam("nodeId") int nodeId) {
-//        return nodeService.get(nodeId);
-//    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("{nodeId}")
+    public NodeEntity getId(@PathParam("nodeId") int nodeId) {
+        return nodeService.get(nodeId);
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

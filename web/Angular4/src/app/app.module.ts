@@ -55,11 +55,13 @@ import {NodeValueComponent} from "./Modules/NodeValue/NodeValue.Component";
 import {NodeValueService} from "./Modules/NodeValue/NodeValue.Service";
 import {NodeComponent} from "./Modules/Node/Node.Component";
 import {NodeService} from "./Modules/Node/Node.Service";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {ReportComponent} from "./Modules/Report/Report.Component";
 // import {[MODULE]Service} from "./Modules/[MODULE]/[MODULE].Service";
 //[END]
 
 @NgModule({
-    imports: [ToastModule.forRoot(), BrowserModule, NgvasModule, FormsModule, HttpModule, Routing, BrowserAnimationsModule, ReactiveFormsModule, NgbModule.forRoot(), ConfirmationPopoverModule.forRoot(),
+    imports: [ToastModule.forRoot(),NgxChartsModule, BrowserModule, NgvasModule, FormsModule, HttpModule, Routing, BrowserAnimationsModule, ReactiveFormsModule, NgbModule.forRoot(), ConfirmationPopoverModule.forRoot(),
         InputTextModule, CalendarModule, ButtonModule, DataTableModule, DialogModule, TreeModule, RatingModule, AccordionModule, ContextMenuModule],
     declarations: [AppComponent, HeaderComponent, BodyComponent, PagingComponent, DropdownComponent, ExcelComponent, TagsinputComponent,
         HomeComponent, InputfileComponent, ModalComponent, Dropdown2Component, PortletComponent,
@@ -67,7 +69,7 @@ import {NodeService} from "./Modules/Node/Node.Service";
         // LayerAccessControlComponent, RuleComponent,
         //[IMPORT MODULE] [
         //[MODULE]Component,
-        fileComponent, userComponent, NodeValueComponent, NodeComponent        //[MODULE]Component,
+        fileComponent, userComponent, NodeValueComponent, NodeComponent, ReportComponent        //[MODULE]Component,
         //[END],DropdownComponent2
     ],
     providers: [

@@ -47,10 +47,10 @@ public class NodeService {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<NodeModel> criteria = builder.createQuery(NodeModel.class);
         Root<NodeModel> NodeEntities = criteria.from(NodeModel.class);
-        criteria.where(builder.equal(NodeEntities.get("nodeId"), id));
+        criteria.where(builder.equal(NodeEntities.get("id"), id));
         try {
             NodeModel nodeModel = session.createQuery(criteria).getSingleResult();
-            return new NodeEntity(nodeModel);
+            return new NodeEntity(nodeModel, nodeModel.getNodevaluesById());
         } catch (NoResultException e) {
             return null;
         } finally {
