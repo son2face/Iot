@@ -22,7 +22,7 @@ export class FileEntity {
             this.type = null;
             this.expriedTime = null;
             this.userId = null;
-            this.userEntity = new UserEntity();
+            this.userEntity = null;
         } else {
             this.fileId = file.fileId;
             this.name = file.name;
@@ -32,7 +32,7 @@ export class FileEntity {
             this.expriedTime = file.expriedTime;
             this.userId = file.userId;
             this.userEntity = file.userEntity;
-            if (this.userEntity == null) this.userEntity = new UserEntity();
+            // if (this.userEntity == null) this.userEntity = new UserEntity();
         }
         this.IsEdit = false;
     }

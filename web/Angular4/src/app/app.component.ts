@@ -8,6 +8,7 @@ import {InputDiscussionComponent} from "./Shared/MaterialComponent/InputDiscussi
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
     DropdownComponent : DropdownComponent = new DropdownComponent();
     DiscussionComponent : InputDiscussionComponent = new InputDiscussionComponent();

@@ -11,7 +11,6 @@ import {HttpService} from "./Shared/HttpService";
 import {HomeComponent} from "./Modules/Home/Home.Component";
 import {ModalComponent} from "./Shared/MaterialComponent/modal/modal.component";
 import {MenuPurchaseComponent} from "./Shared/MaterialComponent/MenuPurchase/menupurchase.component";
-import {TooltipDirective} from 'ng2-tooltip-directive/components';
 import {NgbDateFRParserFormatter} from "./Shared/DateParseFormatter";
 import {NgbDateParserFormatter, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //[IMPORT MODULE]
@@ -45,7 +44,6 @@ import {
 import {ExcelComponent} from "./Shared/MaterialComponent/Excel/Excel.component";
 import {TagsinputComponent} from "./Shared/MaterialComponent/tagsinput/tagsinput.component";
 import {InputfileComponent} from "./Shared/MaterialComponent/inputfile/inputfile.component";
-import {Dropdown2Component} from "./Shared/MaterialComponent/dropdown2/dropdown2.component";
 import {PortletComponent} from "./Shared/MaterialComponent/Portlet/Portlet.Component";
 import {InputDiscussionComponent} from "./Shared/MaterialComponent/InputDiscussion/InputDiscussion.component";
 import {AuthGuard} from "./Auth.Guard.Service";
@@ -57,6 +55,7 @@ import {NodeComponent} from "./Modules/Node/Node.Component";
 import {NodeService} from "./Modules/Node/Node.Service";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {ReportComponent} from "./Modules/Report/Report.Component";
+import {TestComponent} from "./Modules/Test/Test.component";
 // import {[MODULE]Service} from "./Modules/[MODULE]/[MODULE].Service";
 //[END]
 
@@ -64,8 +63,8 @@ import {ReportComponent} from "./Modules/Report/Report.Component";
     imports: [ToastModule.forRoot(),NgxChartsModule, BrowserModule, NgvasModule, FormsModule, HttpModule, Routing, BrowserAnimationsModule, ReactiveFormsModule, NgbModule.forRoot(), ConfirmationPopoverModule.forRoot(),
         InputTextModule, CalendarModule, ButtonModule, DataTableModule, DialogModule, TreeModule, RatingModule, AccordionModule, ContextMenuModule],
     declarations: [AppComponent, HeaderComponent, BodyComponent, PagingComponent, DropdownComponent, ExcelComponent, TagsinputComponent,
-        HomeComponent, InputfileComponent, ModalComponent, Dropdown2Component, PortletComponent,
-        MenuPurchaseComponent, TooltipDirective, InputDiscussionComponent,
+        HomeComponent, InputfileComponent, ModalComponent, PortletComponent,TestComponent,
+        MenuPurchaseComponent,  InputDiscussionComponent,
         // LayerAccessControlComponent, RuleComponent,
         //[IMPORT MODULE] [
         //[MODULE]Component,
