@@ -31,7 +31,6 @@
       <excludeFolder url="file://$MODULE_DIR$/Angular4/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/web/Angular4/node_modules" />
-      <excludeFolder url="file://$MODULE_DIR$/web/Angular4/src/app" />
       <excludeFolder url="file://$MODULE_DIR$/web/Angular4/tmp" />
     </content>
     <content url="file://$MODULE_DIR$/Angular4/node_modules" />

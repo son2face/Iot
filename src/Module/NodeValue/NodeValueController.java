@@ -1,7 +1,5 @@
 package Module.NodeValue;
 
-import Module.Node.NodeService;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -27,8 +25,16 @@ public class NodeValueController {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/Count")
-    public int count(@PathParam("nodeId") int nodeId,@BeanParam SearchNodeValueModel searchNodeValueModel) {
-        return 100;
+    public Long count(@PathParam("nodeId") int nodeId,@BeanParam SearchNodeValueModel searchNodeValueModel) {
+        return nodeValueService.count(nodeId,searchNodeValueModel);
+    }
+
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/Virtualize")
+    public List<NodeValueEntity> virtualize(@PathParam("nodeId") int nodeId,@BeanParam SearchNodeValueModel searchNodeValueModel) {
+        return nodeValueService.getSleepScore(nodeId,searchNodeValueModel);
     }
 
     //
