@@ -11921,7 +11921,7 @@
                     }
                     if (typeof text.content !== undefined && text.content) {
                         text.content = escape(text.content);
-                        html += '<div class="content">' + text.content + '</div>';
+                        html += '<div class="main-content">' + text.content + '</div>';
                     }
                 }
                 return html;
@@ -14756,7 +14756,7 @@
                                         + '</div>'
                                     ;
                                 }
-                                html += '<div class="content">';
+                                html += '<div class="main-content">';
                                 if (result[fields.price] !== undefined) {
                                     html += '<div class="price">' + result[fields.price] + '</div>';
                                 }
@@ -14807,7 +14807,7 @@
                                 + '</div>'
                             ;
                         }
-                        html += '<div class="content">';
+                        html += '<div class="main-content">';
                         if (result[fields.price] !== undefined) {
                             html += '<div class="price">' + result[fields.price] + '</div>';
                         }

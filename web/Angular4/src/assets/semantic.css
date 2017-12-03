@@ -989,98 +989,98 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
     z-index: 1;
 }
 
-.ui.animated.button .content {
+.ui.animated.button .main-content {
     will-change: transform, opacity;
 }
 
-.ui.animated.button .visible.content {
+.ui.animated.button .visible.main-content {
     position: relative;
     margin-right: 1.5em;
 }
 
-.ui.animated.button .hidden.content {
+.ui.animated.button .hidden.main-content {
     position: absolute;
     width: 100%;
 }
 
 /* Horizontal */
 
-.ui.animated.button .visible.content,
-.ui.animated.button .hidden.content {
+.ui.animated.button .visible.main-content,
+.ui.animated.button .hidden.main-content {
     -webkit-transition: right 0.3s ease 0s;
     transition: right 0.3s ease 0s;
 }
 
-.ui.animated.button .visible.content {
+.ui.animated.button .visible.main-content {
     left: auto;
     right: 0%;
 }
 
-.ui.animated.button .hidden.content {
+.ui.animated.button .hidden.main-content {
     top: 50%;
     left: auto;
     right: -100%;
     margin-top: -0.5em;
 }
 
-.ui.animated.button:focus .visible.content,
-.ui.animated.button:hover .visible.content {
+.ui.animated.button:focus .visible.main-content,
+.ui.animated.button:hover .visible.main-content {
     left: auto;
     right: 200%;
 }
 
-.ui.animated.button:focus .hidden.content,
-.ui.animated.button:hover .hidden.content {
+.ui.animated.button:focus .hidden.main-content,
+.ui.animated.button:hover .hidden.main-content {
     left: auto;
     right: 0%;
 }
 
 /* Vertical */
 
-.ui.vertical.animated.button .visible.content,
-.ui.vertical.animated.button .hidden.content {
+.ui.vertical.animated.button .visible.main-content,
+.ui.vertical.animated.button .hidden.main-content {
     -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
     transition: top 0.3s ease, -webkit-transform 0.3s ease;
     transition: top 0.3s ease, transform 0.3s ease;
     transition: top 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
-.ui.vertical.animated.button .visible.content {
+.ui.vertical.animated.button .visible.main-content {
     -webkit-transform: translateY(0%);
     transform: translateY(0%);
     right: auto;
 }
 
-.ui.vertical.animated.button .hidden.content {
+.ui.vertical.animated.button .hidden.main-content {
     top: -50%;
     left: 0%;
     right: auto;
 }
 
-.ui.vertical.animated.button:focus .visible.content,
-.ui.vertical.animated.button:hover .visible.content {
+.ui.vertical.animated.button:focus .visible.main-content,
+.ui.vertical.animated.button:hover .visible.main-content {
     -webkit-transform: translateY(200%);
     transform: translateY(200%);
     right: auto;
 }
 
-.ui.vertical.animated.button:focus .hidden.content,
-.ui.vertical.animated.button:hover .hidden.content {
+.ui.vertical.animated.button:focus .hidden.main-content,
+.ui.vertical.animated.button:hover .hidden.main-content {
     top: 50%;
     right: auto;
 }
 
 /* Fade */
 
-.ui.fade.animated.button .visible.content,
-.ui.fade.animated.button .hidden.content {
+.ui.fade.animated.button .visible.main-content,
+.ui.fade.animated.button .hidden.main-content {
     -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
     transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
-.ui.fade.animated.button .visible.content {
+.ui.fade.animated.button .visible.main-content {
     left: auto;
     right: auto;
     opacity: 1;
@@ -1088,7 +1088,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
     transform: scale(1);
 }
 
-.ui.fade.animated.button .hidden.content {
+.ui.fade.animated.button .hidden.main-content {
     opacity: 0;
     left: 0%;
     right: auto;
@@ -1096,8 +1096,8 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
     transform: scale(1.5);
 }
 
-.ui.fade.animated.button:focus .visible.content,
-.ui.fade.animated.button:hover .visible.content {
+.ui.fade.animated.button:focus .visible.main-content,
+.ui.fade.animated.button:hover .visible.main-content {
     left: auto;
     right: auto;
     opacity: 0;
@@ -1105,8 +1105,8 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
     transform: scale(0.75);
 }
 
-.ui.fade.animated.button:focus .hidden.content,
-.ui.fade.animated.button:hover .hidden.content {
+.ui.fade.animated.button:focus .hidden.main-content,
+.ui.fade.animated.button:hover .hidden.main-content {
     left: 0%;
     right: auto;
     opacity: 1;
@@ -6493,22 +6493,22 @@ i.flag.zimbabwe:before {
      Content
 ---------------*/
 
-.ui.header .content {
+.ui.header .main-content {
     display: inline-block;
     vertical-align: top;
 }
 
 /* After Image */
 
-.ui.header > img + .content,
-.ui.header > .image + .content {
+.ui.header > img + .main-content,
+.ui.header > .image + .main-content {
     padding-left: 0.75rem;
     vertical-align: middle;
 }
 
 /* After Icon */
 
-.ui.header > .icon + .content {
+.ui.header > .icon + .main-content {
     padding-left: 0.75rem;
     display: table-cell;
     vertical-align: middle;
@@ -6690,7 +6690,7 @@ h5.ui.header .sub.header {
     opacity: 1;
 }
 
-.ui.icon.header .content {
+.ui.icon.header .main-content {
     display: block;
     padding: 0em;
 }
@@ -9726,11 +9726,11 @@ i.icon.sort.alphabet.descending:before {
     content: "\f15e";
 }
 
-i.icon.sort.content.ascending:before {
+i.icon.sort.main-content.ascending:before {
     content: "\f160";
 }
 
-i.icon.sort.content.descending:before {
+i.icon.sort.main-content.descending:before {
     content: "\f161";
 }
 
@@ -9812,7 +9812,7 @@ i.icon.save:before {
     content: "\f0c7";
 }
 
-i.icon.content:before {
+i.icon.main-content:before {
     content: "\f0c9";
 }
 
@@ -13956,27 +13956,27 @@ ol.ui.list ol li,
 
 /* Content */
 
-.ui.list .list > .item > .content,
-.ui.list > .item > .content {
+.ui.list .list > .item > .main-content,
+.ui.list > .item > .main-content {
     line-height: 1.14285714em;
 }
 
-.ui.list .list > .item > .image + .content,
-.ui.list .list > .item > .icon + .content,
-.ui.list > .item > .image + .content,
-.ui.list > .item > .icon + .content {
+.ui.list .list > .item > .image + .main-content,
+.ui.list .list > .item > .icon + .main-content,
+.ui.list > .item > .image + .main-content,
+.ui.list > .item > .icon + .main-content {
     display: table-cell;
     padding: 0em 0em 0em 0.5em;
     vertical-align: top;
 }
 
-.ui.list .list > .item > img.image + .content,
-.ui.list > .item > img.image + .content {
+.ui.list .list > .item > img.image + .main-content,
+.ui.list > .item > img.image + .main-content {
     display: inline-block;
 }
 
-.ui.list .list > .item > .content > .list,
-.ui.list > .item > .content > .list {
+.ui.list .list > .item > .main-content > .list,
+.ui.list > .item > .main-content > .list {
     margin-left: 0em;
     padding-left: 0em;
 }
@@ -14126,8 +14126,8 @@ ol.ui.list ol li,
 .ui.horizontal.list .list > .item > .image,
 .ui.horizontal.list > .item > .icon,
 .ui.horizontal.list .list > .item > .icon,
-.ui.horizontal.list > .item > .content,
-.ui.horizontal.list .list > .item > .content {
+.ui.horizontal.list > .item > .main-content,
+.ui.horizontal.list .list > .item > .main-content {
     vertical-align: middle;
 }
 
@@ -14147,7 +14147,7 @@ ol.ui.list ol li,
 }
 
 .ui.horizontal.list > .item > .icon,
-.ui.horizontal.list > .item > .icon + .content {
+.ui.horizontal.list > .item > .icon + .main-content {
     float: none;
     display: inline-block;
 }
@@ -14231,19 +14231,19 @@ ol.ui.list ol li,
 --------------------*/
 
 .ui.list[class*="top aligned"] .image,
-.ui.list[class*="top aligned"] .content,
+.ui.list[class*="top aligned"] .main-content,
 .ui.list [class*="top aligned"] {
     vertical-align: top !important;
 }
 
 .ui.list[class*="middle aligned"] .image,
-.ui.list[class*="middle aligned"] .content,
+.ui.list[class*="middle aligned"] .main-content,
 .ui.list [class*="middle aligned"] {
     vertical-align: middle !important;
 }
 
 .ui.list[class*="bottom aligned"] .image,
-.ui.list[class*="bottom aligned"] .content,
+.ui.list[class*="bottom aligned"] .main-content,
 .ui.list [class*="bottom aligned"] {
     vertical-align: bottom !important;
 }
@@ -15447,7 +15447,7 @@ ol.ui.horizontal.list li:before,
     font-size: 0em !important;
 }
 
-.ui.reveal > .visible.content {
+.ui.reveal > .visible.main-content {
     position: absolute !important;
     top: 0em !important;
     left: 0em !important;
@@ -15456,15 +15456,15 @@ ol.ui.horizontal.list li:before,
     transition: all 0.5s ease 0.1s;
 }
 
-.ui.reveal > .hidden.content {
+.ui.reveal > .hidden.main-content {
     position: relative !important;
     z-index: 2 !important;
 }
 
 /* Make sure hovered element is on top of other reveal */
 
-.ui.active.reveal .visible.content,
-.ui.reveal:hover .visible.content {
+.ui.active.reveal .visible.main-content,
+.ui.reveal:hover .visible.main-content {
     z-index: 4 !important;
 }
 
@@ -15482,7 +15482,7 @@ ol.ui.horizontal.list li:before,
     white-space: nowrap;
 }
 
-.ui.slide.reveal > .content {
+.ui.slide.reveal > .main-content {
     display: block;
     width: 100%;
     float: left;
@@ -15493,11 +15493,11 @@ ol.ui.horizontal.list li:before,
     transition: transform 0.5s ease 0.1s, -webkit-transform 0.5s ease 0.1s;
 }
 
-.ui.slide.reveal > .visible.content {
+.ui.slide.reveal > .visible.main-content {
     position: relative !important;
 }
 
-.ui.slide.reveal > .hidden.content {
+.ui.slide.reveal > .hidden.main-content {
     position: absolute !important;
     left: 0% !important;
     width: 100% !important;
@@ -15505,70 +15505,70 @@ ol.ui.horizontal.list li:before,
     transform: translateX(100%) !important;
 }
 
-.ui.slide.active.reveal > .visible.content,
-.ui.slide.reveal:hover > .visible.content {
+.ui.slide.active.reveal > .visible.main-content,
+.ui.slide.reveal:hover > .visible.main-content {
     -webkit-transform: translateX(-100%) !important;
     transform: translateX(-100%) !important;
 }
 
-.ui.slide.active.reveal > .hidden.content,
-.ui.slide.reveal:hover > .hidden.content {
+.ui.slide.active.reveal > .hidden.main-content,
+.ui.slide.reveal:hover > .hidden.main-content {
     -webkit-transform: translateX(0%) !important;
     transform: translateX(0%) !important;
 }
 
-.ui.slide.right.reveal > .visible.content {
+.ui.slide.right.reveal > .visible.main-content {
     -webkit-transform: translateX(0%) !important;
     transform: translateX(0%) !important;
 }
 
-.ui.slide.right.reveal > .hidden.content {
+.ui.slide.right.reveal > .hidden.main-content {
     -webkit-transform: translateX(-100%) !important;
     transform: translateX(-100%) !important;
 }
 
-.ui.slide.right.active.reveal > .visible.content,
-.ui.slide.right.reveal:hover > .visible.content {
+.ui.slide.right.active.reveal > .visible.main-content,
+.ui.slide.right.reveal:hover > .visible.main-content {
     -webkit-transform: translateX(100%) !important;
     transform: translateX(100%) !important;
 }
 
-.ui.slide.right.active.reveal > .hidden.content,
-.ui.slide.right.reveal:hover > .hidden.content {
+.ui.slide.right.active.reveal > .hidden.main-content,
+.ui.slide.right.reveal:hover > .hidden.main-content {
     -webkit-transform: translateX(0%) !important;
     transform: translateX(0%) !important;
 }
 
-.ui.slide.up.reveal > .hidden.content {
+.ui.slide.up.reveal > .hidden.main-content {
     -webkit-transform: translateY(100%) !important;
     transform: translateY(100%) !important;
 }
 
-.ui.slide.up.active.reveal > .visible.content,
-.ui.slide.up.reveal:hover > .visible.content {
+.ui.slide.up.active.reveal > .visible.main-content,
+.ui.slide.up.reveal:hover > .visible.main-content {
     -webkit-transform: translateY(-100%) !important;
     transform: translateY(-100%) !important;
 }
 
-.ui.slide.up.active.reveal > .hidden.content,
-.ui.slide.up.reveal:hover > .hidden.content {
+.ui.slide.up.active.reveal > .hidden.main-content,
+.ui.slide.up.reveal:hover > .hidden.main-content {
     -webkit-transform: translateY(0%) !important;
     transform: translateY(0%) !important;
 }
 
-.ui.slide.down.reveal > .hidden.content {
+.ui.slide.down.reveal > .hidden.main-content {
     -webkit-transform: translateY(-100%) !important;
     transform: translateY(-100%) !important;
 }
 
-.ui.slide.down.active.reveal > .visible.content,
-.ui.slide.down.reveal:hover > .visible.content {
+.ui.slide.down.active.reveal > .visible.main-content,
+.ui.slide.down.reveal:hover > .visible.main-content {
     -webkit-transform: translateY(100%) !important;
     transform: translateY(100%) !important;
 }
 
-.ui.slide.down.active.reveal > .hidden.content,
-.ui.slide.down.reveal:hover > .hidden.content {
+.ui.slide.down.active.reveal > .hidden.main-content,
+.ui.slide.down.reveal:hover > .hidden.main-content {
     -webkit-transform: translateY(0%) !important;
     transform: translateY(0%) !important;
 }
@@ -15577,12 +15577,12 @@ ol.ui.horizontal.list li:before,
       Fade
 ---------------*/
 
-.ui.fade.reveal > .visible.content {
+.ui.fade.reveal > .visible.main-content {
     opacity: 1;
 }
 
-.ui.fade.active.reveal > .visible.content,
-.ui.fade.reveal:hover > .visible.content {
+.ui.fade.active.reveal > .visible.main-content,
+.ui.fade.reveal:hover > .visible.main-content {
     opacity: 0;
 }
 
@@ -15596,7 +15596,7 @@ ol.ui.horizontal.list li:before,
     white-space: nowrap;
 }
 
-.ui.move.reveal > .content {
+.ui.move.reveal > .main-content {
     display: block;
     float: left;
     margin: 0em;
@@ -15606,36 +15606,36 @@ ol.ui.horizontal.list li:before,
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s, -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
 }
 
-.ui.move.reveal > .visible.content {
+.ui.move.reveal > .visible.main-content {
     position: relative !important;
 }
 
-.ui.move.reveal > .hidden.content {
+.ui.move.reveal > .hidden.main-content {
     position: absolute !important;
     left: 0% !important;
     width: 100% !important;
 }
 
-.ui.move.active.reveal > .visible.content,
-.ui.move.reveal:hover > .visible.content {
+.ui.move.active.reveal > .visible.main-content,
+.ui.move.reveal:hover > .visible.main-content {
     -webkit-transform: translateX(-100%) !important;
     transform: translateX(-100%) !important;
 }
 
-.ui.move.right.active.reveal > .visible.content,
-.ui.move.right.reveal:hover > .visible.content {
+.ui.move.right.active.reveal > .visible.main-content,
+.ui.move.right.reveal:hover > .visible.main-content {
     -webkit-transform: translateX(100%) !important;
     transform: translateX(100%) !important;
 }
 
-.ui.move.up.active.reveal > .visible.content,
-.ui.move.up.reveal:hover > .visible.content {
+.ui.move.up.active.reveal > .visible.main-content,
+.ui.move.up.reveal:hover > .visible.main-content {
     -webkit-transform: translateY(-100%) !important;
     transform: translateY(-100%) !important;
 }
 
-.ui.move.down.active.reveal > .visible.content,
-.ui.move.down.reveal:hover > .visible.content {
+.ui.move.down.active.reveal > .visible.main-content,
+.ui.move.down.reveal:hover > .visible.main-content {
     -webkit-transform: translateY(100%) !important;
     transform: translateY(100%) !important;
 }
@@ -15644,34 +15644,34 @@ ol.ui.horizontal.list li:before,
      Rotate
 ---------------*/
 
-.ui.rotate.reveal > .visible.content {
+.ui.rotate.reveal > .visible.main-content {
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
 }
 
-.ui.rotate.reveal > .visible.content,
-.ui.rotate.right.reveal > .visible.content {
+.ui.rotate.reveal > .visible.main-content,
+.ui.rotate.right.reveal > .visible.main-content {
     -webkit-transform-origin: bottom right;
     transform-origin: bottom right;
 }
 
-.ui.rotate.active.reveal > .visible.content,
-.ui.rotate.reveal:hover > .visible.content,
-.ui.rotate.right.active.reveal > .visible.content,
-.ui.rotate.right.reveal:hover > .visible.content {
+.ui.rotate.active.reveal > .visible.main-content,
+.ui.rotate.reveal:hover > .visible.main-content,
+.ui.rotate.right.active.reveal > .visible.main-content,
+.ui.rotate.right.reveal:hover > .visible.main-content {
     -webkit-transform: rotate(110deg);
     transform: rotate(110deg);
 }
 
-.ui.rotate.left.reveal > .visible.content {
+.ui.rotate.left.reveal > .visible.main-content {
     -webkit-transform-origin: bottom left;
     transform-origin: bottom left;
 }
 
-.ui.rotate.left.active.reveal > .visible.content,
-.ui.rotate.left.reveal:hover > .visible.content {
+.ui.rotate.left.active.reveal > .visible.main-content,
+.ui.rotate.left.reveal:hover > .visible.main-content {
     -webkit-transform: rotate(-110deg);
     transform: rotate(-110deg);
 }
@@ -15680,7 +15680,7 @@ ol.ui.horizontal.list li:before,
               States
 *******************************/
 
-.ui.disabled.reveal:hover > .visible.visible.content {
+.ui.disabled.reveal:hover > .visible.visible.main-content {
     position: static !important;
     display: block !important;
     opacity: 1 !important;
@@ -15692,7 +15692,7 @@ ol.ui.horizontal.list li:before,
     transform: none !important;
 }
 
-.ui.disabled.reveal:hover > .hidden.hidden.content {
+.ui.disabled.reveal:hover > .hidden.hidden.main-content {
     display: none !important;
 }
 
@@ -15712,7 +15712,7 @@ ol.ui.horizontal.list li:before,
      Instant
 ---------------*/
 
-.ui.instant.reveal > .content {
+.ui.instant.reveal > .main-content {
     -webkit-transition-delay: 0s !important;
     transition-delay: 0s !important;
 }
@@ -15721,7 +15721,7 @@ ol.ui.horizontal.list li:before,
      Sizing
 ---------------*/
 
-.ui.reveal > .content {
+.ui.reveal > .main-content {
     font-size: 1rem !important;
 }
 
@@ -16782,7 +16782,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step > .icon,
-.ui.steps .step > .icon ~ .content {
+.ui.steps .step > .icon ~ .main-content {
     display: block;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
@@ -16792,7 +16792,7 @@ ol.ui.horizontal.list li:before,
     align-self: middle;
 }
 
-.ui.steps .step > .icon ~ .content {
+.ui.steps .step > .icon ~ .main-content {
     -webkit-box-flex: 1 0 auto;
     -ms-flex-positive: 1 0 auto;
     flex-grow: 1 0 auto;
@@ -16955,7 +16955,7 @@ ol.ui.horizontal.list li:before,
     }
 
     /* Content */
-    .ui.steps:not(.unstackable) .step .content {
+    .ui.steps:not(.unstackable) .step .main-content {
         text-align: center;
     }
 
@@ -17111,7 +17111,7 @@ ol.ui.horizontal.list li:before,
     }
 
     /* Content */
-    .ui[class*="tablet stackable"].steps .step .content {
+    .ui[class*="tablet stackable"].steps .step .main-content {
         text-align: center;
     }
 
@@ -23358,7 +23358,7 @@ Floated Menu / Item
     opacity: 0.8;
 }
 
-.ui.icon.message > .content {
+.ui.icon.message > .main-content {
     display: block;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -23366,7 +23366,7 @@ Floated Menu / Item
     vertical-align: middle;
 }
 
-.ui.icon.message .icon:not(.close) + .content {
+.ui.icon.message .icon:not(.close) + .main-content {
     padding-left: 0rem;
 }
 
@@ -25354,8 +25354,8 @@ Floated Menu / Item
      Content
 ---------------*/
 
-.ui.cards > .card > .content,
-.ui.card > .content {
+.ui.cards > .card > .main-content,
+.ui.card > .main-content {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -25369,8 +25369,8 @@ Floated Menu / Item
     border-radius: 0em;
 }
 
-.ui.cards > .card > .content:after,
-.ui.card > .content:after {
+.ui.cards > .card > .main-content:after,
+.ui.card > .main-content:after {
     display: block;
     content: ' ';
     height: 0px;
@@ -25379,8 +25379,8 @@ Floated Menu / Item
     visibility: hidden;
 }
 
-.ui.cards > .card > .content > .header,
-.ui.card > .content > .header {
+.ui.cards > .card > .main-content > .header,
+.ui.card > .main-content > .header {
     display: block;
     margin: '';
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -25389,18 +25389,18 @@ Floated Menu / Item
 
 /* Default Header Size */
 
-.ui.cards > .card > .content > .header:not(.ui),
-.ui.card > .content > .header:not(.ui) {
+.ui.cards > .card > .main-content > .header:not(.ui),
+.ui.card > .main-content > .header:not(.ui) {
     font-weight: bold;
     font-size: 1.28571429em;
     margin-top: -0.21425em;
     line-height: 1.28571429em;
 }
 
-.ui.cards > .card > .content > .meta + .description,
-.ui.cards > .card > .content > .header + .description,
-.ui.card > .content > .meta + .description,
-.ui.card > .content > .header + .description {
+.ui.cards > .card > .main-content > .meta + .description,
+.ui.cards > .card > .main-content > .header + .description,
+.ui.card > .main-content > .meta + .description,
+.ui.card > .main-content > .header + .description {
     margin-top: 0.5em;
 }
 
@@ -25441,8 +25441,8 @@ Floated Menu / Item
   Content Image
 ---------------*/
 
-.ui.cards > .card .content img,
-.ui.card .content img {
+.ui.cards > .card .main-content img,
+.ui.card .main-content img {
     display: inline-block;
     vertical-align: middle;
     width: '';
@@ -25461,8 +25461,8 @@ Floated Menu / Item
    Description
 ---------------*/
 
-.ui.cards > .card > .content > .description,
-.ui.card > .content > .description {
+.ui.cards > .card > .main-content > .description,
+.ui.card > .main-content > .description {
     clear: both;
     color: rgba(0, 0, 0, 0.68);
 }
@@ -25471,13 +25471,13 @@ Floated Menu / Item
     Paragraph
 ---------------*/
 
-.ui.cards > .card > .content p,
-.ui.card > .content p {
+.ui.cards > .card > .main-content p,
+.ui.card > .main-content p {
     margin: 0em 0em 0.5em;
 }
 
-.ui.cards > .card > .content p:last-child,
-.ui.card > .content p:last-child {
+.ui.cards > .card > .main-content p:last-child,
+.ui.card > .main-content p:last-child {
     margin-bottom: 0em;
 }
 
@@ -25513,27 +25513,27 @@ Floated Menu / Item
 
 /* Generic */
 
-.ui.cards > .card > .content a:not(.ui),
-.ui.card > .content a:not(.ui) {
+.ui.cards > .card > .main-content a:not(.ui),
+.ui.card > .main-content a:not(.ui) {
     color: '';
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.cards > .card > .content a:not(.ui):hover,
-.ui.card > .content a:not(.ui):hover {
+.ui.cards > .card > .main-content a:not(.ui):hover,
+.ui.card > .main-content a:not(.ui):hover {
     color: '';
 }
 
 /* Header */
 
-.ui.cards > .card > .content > a.header,
-.ui.card > .content > a.header {
+.ui.cards > .card > .main-content > a.header,
+.ui.card > .main-content > a.header {
     color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.cards > .card > .content > a.header:hover,
-.ui.card > .content > a.header:hover {
+.ui.cards > .card > .main-content > a.header:hover,
+.ui.card > .main-content > a.header:hover {
     color: #1e70bf;
 }
 
@@ -25579,22 +25579,22 @@ Floated Menu / Item
 
 /* Icon */
 
-.ui.cards > .card > .content .star.icon,
-.ui.card > .content .star.icon {
+.ui.cards > .card > .main-content .star.icon,
+.ui.card > .main-content .star.icon {
     cursor: pointer;
     opacity: 0.75;
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.cards > .card > .content .star.icon:hover,
-.ui.card > .content .star.icon:hover {
+.ui.cards > .card > .main-content .star.icon:hover,
+.ui.card > .main-content .star.icon:hover {
     opacity: 1;
     color: #FFB70A;
 }
 
-.ui.cards > .card > .content .active.star.icon,
-.ui.card > .content .active.star.icon {
+.ui.cards > .card > .main-content .active.star.icon,
+.ui.card > .main-content .active.star.icon {
     color: #FFE623;
 }
 
@@ -25602,22 +25602,22 @@ Floated Menu / Item
 
 /* Icon */
 
-.ui.cards > .card > .content .like.icon,
-.ui.card > .content .like.icon {
+.ui.cards > .card > .main-content .like.icon,
+.ui.card > .main-content .like.icon {
     cursor: pointer;
     opacity: 0.75;
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.cards > .card > .content .like.icon:hover,
-.ui.card > .content .like.icon:hover {
+.ui.cards > .card > .main-content .like.icon:hover,
+.ui.card > .main-content .like.icon:hover {
     opacity: 1;
     color: #FF2733;
 }
 
-.ui.cards > .card > .content .active.like.icon,
-.ui.card > .content .active.like.icon {
+.ui.cards > .card > .main-content .active.like.icon,
+.ui.card > .main-content .active.like.icon {
     color: #FF2733;
 }
 
@@ -26373,13 +26373,13 @@ a.ui.card:hover,
      Content
 ---------------*/
 
-.ui.comments .comment > .content {
+.ui.comments .comment > .main-content {
     display: block;
 }
 
 /* If there is an avatar move content over */
 
-.ui.comments .comment > .avatar ~ .content {
+.ui.comments .comment > .avatar ~ .main-content {
     margin-left: 3.5em;
 }
 
@@ -26515,7 +26515,7 @@ a.ui.card:hover,
     transition-delay: 0.1s;
 }
 
-.ui.minimal.comments .comment > .content:hover > .actions {
+.ui.minimal.comments .comment > .main-content:hover > .actions {
     opacity: 1;
 }
 
@@ -26650,7 +26650,7 @@ a.ui.card:hover,
     border-radius: 500rem;
 }
 
-.ui.feed > .event > .label + .content {
+.ui.feed > .event > .label + .main-content {
     margin: 0.5em 0em 0.35714286em 1.14285714em;
 }
 
@@ -26660,7 +26660,7 @@ a.ui.card:hover,
 
 /* Content */
 
-.ui.feed > .event > .content {
+.ui.feed > .event > .main-content {
     display: block;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -26672,13 +26672,13 @@ a.ui.card:hover,
     word-wrap: break-word;
 }
 
-.ui.feed > .event:last-child > .content {
+.ui.feed > .event:last-child > .main-content {
     padding-bottom: 0em;
 }
 
 /* Link */
 
-.ui.feed > .event > .content a {
+.ui.feed > .event > .main-content a {
     cursor: pointer;
 }
 
@@ -26686,7 +26686,7 @@ a.ui.card:hover,
       Date
 ---------------*/
 
-.ui.feed > .event > .content .date {
+.ui.feed > .event > .main-content .date {
     margin: -0.5rem 0em 0em;
     padding: 0em;
     font-weight: normal;
@@ -26699,7 +26699,7 @@ a.ui.card:hover,
      Summary
 ---------------*/
 
-.ui.feed > .event > .content .summary {
+.ui.feed > .event > .main-content .summary {
     margin: 0em;
     font-size: 1em;
     font-weight: bold;
@@ -26708,7 +26708,7 @@ a.ui.card:hover,
 
 /* Summary Image */
 
-.ui.feed > .event > .content .summary img {
+.ui.feed > .event > .main-content .summary img {
     display: inline-block;
     width: auto;
     height: 10em;
@@ -26721,14 +26721,14 @@ a.ui.card:hover,
       User
 ---------------*/
 
-.ui.feed > .event > .content .user {
+.ui.feed > .event > .main-content .user {
     display: inline-block;
     font-weight: bold;
     margin-right: 0em;
     vertical-align: baseline;
 }
 
-.ui.feed > .event > .content .user img {
+.ui.feed > .event > .main-content .user img {
     margin: -0.25em 0.25em 0em 0em;
     width: auto;
     height: 10em;
@@ -26741,7 +26741,7 @@ a.ui.card:hover,
 
 /* Date inside Summary */
 
-.ui.feed > .event > .content .summary > .date {
+.ui.feed > .event > .main-content .summary > .date {
     display: inline-block;
     float: none;
     font-weight: normal;
@@ -26756,7 +26756,7 @@ a.ui.card:hover,
   Extra Summary
 ---------------*/
 
-.ui.feed > .event > .content .extra {
+.ui.feed > .event > .main-content .extra {
     margin: 0.5em 0em 0em;
     background: none;
     padding: 0em;
@@ -26765,7 +26765,7 @@ a.ui.card:hover,
 
 /* Images */
 
-.ui.feed > .event > .content .extra.images img {
+.ui.feed > .event > .main-content .extra.images img {
     display: inline-block;
     margin: 0em 0.25em 0em 0em;
     width: 6em;
@@ -26773,7 +26773,7 @@ a.ui.card:hover,
 
 /* Text */
 
-.ui.feed > .event > .content .extra.text {
+.ui.feed > .event > .main-content .extra.text {
     padding: 0em;
     border-left: none;
     font-size: 1em;
@@ -26785,7 +26785,7 @@ a.ui.card:hover,
       Meta
 ---------------*/
 
-.ui.feed > .event > .content .meta {
+.ui.feed > .event > .main-content .meta {
     display: inline-block;
     font-size: 0.85714286em;
     margin: 0.5em 0em 0em;
@@ -26797,12 +26797,12 @@ a.ui.card:hover,
     color: rgba(0, 0, 0, 0.6);
 }
 
-.ui.feed > .event > .content .meta > * {
+.ui.feed > .event > .main-content .meta > * {
     position: relative;
     margin-left: 0.75em;
 }
 
-.ui.feed > .event > .content .meta > *:after {
+.ui.feed > .event > .main-content .meta > *:after {
     content: '';
     color: rgba(0, 0, 0, 0.2);
     top: 0em;
@@ -26812,34 +26812,34 @@ a.ui.card:hover,
     vertical-align: top;
 }
 
-.ui.feed > .event > .content .meta .like {
+.ui.feed > .event > .main-content .meta .like {
     color: '';
     -webkit-transition: 0.2s color ease;
     transition: 0.2s color ease;
 }
 
-.ui.feed > .event > .content .meta .like:hover .icon {
+.ui.feed > .event > .main-content .meta .like:hover .icon {
     color: #FF2733;
 }
 
-.ui.feed > .event > .content .meta .active.like .icon {
+.ui.feed > .event > .main-content .meta .active.like .icon {
     color: #EF404A;
 }
 
 /* First element */
 
-.ui.feed > .event > .content .meta > :first-child {
+.ui.feed > .event > .main-content .meta > :first-child {
     margin-left: 0em;
 }
 
-.ui.feed > .event > .content .meta > :first-child::after {
+.ui.feed > .event > .main-content .meta > :first-child::after {
     display: none;
 }
 
 /* Action */
 
-.ui.feed > .event > .content .meta a,
-.ui.feed > .event > .content .meta > .icon {
+.ui.feed > .event > .main-content .meta a,
+.ui.feed > .event > .main-content .meta > .icon {
     cursor: pointer;
     opacity: 1;
     color: rgba(0, 0, 0, 0.5);
@@ -26847,9 +26847,9 @@ a.ui.card:hover,
     transition: color 0.1s ease;
 }
 
-.ui.feed > .event > .content .meta a:hover,
-.ui.feed > .event > .content .meta a:hover .icon,
-.ui.feed > .event > .content .meta > .icon:hover {
+.ui.feed > .event > .main-content .meta a:hover,
+.ui.feed > .event > .main-content .meta a:hover .icon,
+.ui.feed > .event > .main-content .meta > .icon:hover {
     color: rgba(0, 0, 0, 0.95);
 }
 
@@ -26987,7 +26987,7 @@ a.ui.card:hover,
      Content
 ---------------*/
 
-.ui.items > .item > .content {
+.ui.items > .item > .main-content {
     display: block;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -27001,7 +27001,7 @@ a.ui.card:hover,
     border-radius: 0em;
 }
 
-.ui.items > .item > .content:after {
+.ui.items > .item > .main-content:after {
     display: block;
     content: ' ';
     height: 0px;
@@ -27010,7 +27010,7 @@ a.ui.card:hover,
     visibility: hidden;
 }
 
-.ui.items > .item > .image + .content {
+.ui.items > .item > .image + .main-content {
     min-width: 0;
     width: auto;
     display: block;
@@ -27021,7 +27021,7 @@ a.ui.card:hover,
     padding-left: 1.5em;
 }
 
-.ui.items > .item > .content > .header {
+.ui.items > .item > .main-content > .header {
     display: inline-block;
     margin: -0.21425em 0em 0em;
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -27031,7 +27031,7 @@ a.ui.card:hover,
 
 /* Default Header Size */
 
-.ui.items > .item > .content > .header:not(.ui) {
+.ui.items > .item > .main-content > .header:not(.ui) {
     font-size: 1.28571429em;
 }
 
@@ -27051,7 +27051,7 @@ a.ui.card:hover,
   Content Image
 ---------------*/
 
-.ui.items > .item .content img {
+.ui.items > .item .main-content img {
     -ms-flex-item-align: middle;
     -ms-grid-row-align: middle;
     align-self: middle;
@@ -27069,7 +27069,7 @@ a.ui.card:hover,
    Description
 ---------------*/
 
-.ui.items > .item > .content > .description {
+.ui.items > .item > .main-content > .description {
     margin-top: 0.6em;
     max-width: auto;
     font-size: 1em;
@@ -27081,11 +27081,11 @@ a.ui.card:hover,
     Paragraph
 ---------------*/
 
-.ui.items > .item > .content p {
+.ui.items > .item > .main-content p {
     margin: 0em 0em 0.5em;
 }
 
-.ui.items > .item > .content p:last-child {
+.ui.items > .item > .main-content p:last-child {
     margin-bottom: 0em;
 }
 
@@ -27119,23 +27119,23 @@ a.ui.card:hover,
 
 /* Generic */
 
-.ui.items > .item > .content a:not(.ui) {
+.ui.items > .item > .main-content a:not(.ui) {
     color: '';
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.items > .item > .content a:not(.ui):hover {
+.ui.items > .item > .main-content a:not(.ui):hover {
     color: '';
 }
 
 /* Header */
 
-.ui.items > .item > .content > a.header {
+.ui.items > .item > .main-content > a.header {
     color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.items > .item > .content > a.header:hover {
+.ui.items > .item > .main-content > a.header:hover {
     color: #1e70bf;
 }
 
@@ -27157,19 +27157,19 @@ a.ui.card:hover,
 
 /* Icon */
 
-.ui.items > .item > .content .favorite.icon {
+.ui.items > .item > .main-content .favorite.icon {
     cursor: pointer;
     opacity: 0.75;
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.items > .item > .content .favorite.icon:hover {
+.ui.items > .item > .main-content .favorite.icon:hover {
     opacity: 1;
     color: #FFB70A;
 }
 
-.ui.items > .item > .content .active.favorite.icon {
+.ui.items > .item > .main-content .active.favorite.icon {
     color: #FFE623;
 }
 
@@ -27177,19 +27177,19 @@ a.ui.card:hover,
 
 /* Icon */
 
-.ui.items > .item > .content .like.icon {
+.ui.items > .item > .main-content .like.icon {
     cursor: pointer;
     opacity: 0.75;
     -webkit-transition: color 0.1s ease;
     transition: color 0.1s ease;
 }
 
-.ui.items > .item > .content .like.icon:hover {
+.ui.items > .item > .main-content .like.icon:hover {
     opacity: 1;
     color: #FF2733;
 }
 
-.ui.items > .item > .content .active.like.icon {
+.ui.items > .item > .main-content .active.like.icon {
     color: #FF2733;
 }
 
@@ -27251,7 +27251,7 @@ a.ui.card:hover,
         width: 150px;
     }
 
-    .ui.items > .item > .image + .content {
+    .ui.items > .item > .image + .main-content {
         display: block;
         padding: 0em 0em 0em 1em;
     }
@@ -27281,7 +27281,7 @@ a.ui.card:hover,
         max-height: 250px !important;
     }
 
-    .ui.items:not(.unstackable) > .item > .image + .content {
+    .ui.items:not(.unstackable) > .item > .image + .main-content {
         display: block;
         padding: 1.5em 0em 0em;
     }
@@ -27295,18 +27295,18 @@ a.ui.card:hover,
        Aligned
 --------------------*/
 
-.ui.items > .item > .image + [class*="top aligned"].content {
+.ui.items > .item > .image + [class*="top aligned"].main-content {
     -ms-flex-item-align: start;
     align-self: flex-start;
 }
 
-.ui.items > .item > .image + [class*="middle aligned"].content {
+.ui.items > .item > .image + [class*="middle aligned"].main-content {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
 }
 
-.ui.items > .item > .image + [class*="bottom aligned"].content {
+.ui.items > .item > .image + [class*="bottom aligned"].main-content {
     -ms-flex-item-align: end;
     align-self: flex-end;
 }
@@ -27365,8 +27365,8 @@ a.ui.card:hover,
     cursor: pointer;
 }
 
-.ui.items a.item:hover .content .header,
-.ui.link.items > .item:hover .content .header {
+.ui.items a.item:hover .main-content .header,
+.ui.link.items > .item:hover .main-content .header {
     color: #1e70bf;
 }
 
@@ -28074,20 +28074,20 @@ a.ui.card:hover,
 
 /* Content */
 
-.ui.accordion .title ~ .content,
-.ui.accordion .accordion .title ~ .content {
+.ui.accordion .title ~ .main-content,
+.ui.accordion .accordion .title ~ .main-content {
     display: none;
 }
 
 /* Default Styling */
 
-.ui.accordion:not(.styled) .title ~ .content:not(.ui),
-.ui.accordion:not(.styled) .accordion .title ~ .content:not(.ui) {
+.ui.accordion:not(.styled) .title ~ .main-content:not(.ui),
+.ui.accordion:not(.styled) .accordion .title ~ .main-content:not(.ui) {
     margin: '';
     padding: 0.5em 0em 1em;
 }
 
-.ui.accordion:not(.styled) .title ~ .content:not(.ui):last-child {
+.ui.accordion:not(.styled) .title ~ .main-content:not(.ui):last-child {
     padding-bottom: 0em;
 }
 
@@ -28189,13 +28189,13 @@ a.ui.card:hover,
 
 /* Content */
 
-.ui.styled.accordion .content,
-.ui.styled.accordion .accordion .content {
+.ui.styled.accordion .main-content,
+.ui.styled.accordion .accordion .main-content {
     margin: 0em;
     padding: 0.5em 1em 1.5em;
 }
 
-.ui.styled.accordion .accordion .content {
+.ui.styled.accordion .accordion .main-content {
     padding: 0em;
     padding: 0.5em 1em 1.5em;
 }
@@ -28236,8 +28236,8 @@ a.ui.card:hover,
      Active
 ---------------*/
 
-.ui.accordion .active.content,
-.ui.accordion .accordion .active.content {
+.ui.accordion .active.main-content,
+.ui.accordion .accordion .active.main-content {
     display: block;
 }
 
@@ -29008,7 +29008,7 @@ a.ui.card:hover,
 
 /* Dimmer Content */
 
-.ui.dimmer > .content {
+.ui.dimmer > .main-content {
     width: 100%;
     height: 100%;
     display: table;
@@ -29018,7 +29018,7 @@ a.ui.card:hover,
     user-select: text;
 }
 
-.ui.dimmer > .content > * {
+.ui.dimmer > .main-content > * {
     display: table-cell;
     vertical-align: middle;
     color: #FFFFFF;
@@ -29128,11 +29128,11 @@ body.dimmable > .dimmer {
     Aligned
 ---------------*/
 
-.ui.dimmer > .top.aligned.content > * {
+.ui.dimmer > .top.aligned.main-content > * {
     vertical-align: top;
 }
 
-.ui.dimmer > .bottom.aligned.content > * {
+.ui.dimmer > .bottom.aligned.main-content > * {
     vertical-align: bottom;
 }
 
@@ -29144,7 +29144,7 @@ body.dimmable > .dimmer {
     background-color: rgba(255, 255, 255, 0.85);
 }
 
-.ui.inverted.dimmer > .content > * {
+.ui.inverted.dimmer > .main-content > * {
     color: #FFFFFF;
 }
 
@@ -31064,7 +31064,7 @@ select.ui.dropdown {
      Content
 ---------------*/
 
-.ui.modal > .content {
+.ui.modal > .main-content {
     display: block;
     width: 100%;
     font-size: 1em;
@@ -31073,7 +31073,7 @@ select.ui.dropdown {
     background: #FFFFFF;
 }
 
-.ui.modal > .image.content {
+.ui.modal > .image.main-content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -31085,7 +31085,7 @@ select.ui.dropdown {
 
 /* Image */
 
-.ui.modal > .content > .image {
+.ui.modal > .main-content > .image {
     display: block;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
@@ -31116,7 +31116,7 @@ select.ui.dropdown {
 
 /* Description */
 
-.ui.modal > .content > .description {
+.ui.modal > .main-content > .description {
     display: block;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
@@ -31127,8 +31127,8 @@ select.ui.dropdown {
     align-self: top;
 }
 
-.ui.modal > .content > .icon + .description,
-.ui.modal > .content > .image + .description {
+.ui.modal > .main-content > .icon + .description,
+.ui.modal > .main-content > .image + .description {
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
@@ -31139,7 +31139,7 @@ select.ui.dropdown {
 
 /*rtl:ignore*/
 
-.ui.modal > .content > .image > i.icon {
+.ui.modal > .main-content > .image > i.icon {
     margin: 0em;
     opacity: 1;
     width: auto;
@@ -31225,7 +31225,7 @@ select.ui.dropdown {
         padding-right: 2.25rem !important;
     }
 
-    .ui.modal > .content {
+    .ui.modal > .main-content {
         display: block;
         padding: 1rem !important;
     }
@@ -31236,14 +31236,14 @@ select.ui.dropdown {
     }
 
     /*rtl:ignore*/
-    .ui.modal .image.content {
+    .ui.modal .image.main-content {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
     }
 
-    .ui.modal .content > .image {
+    .ui.modal .main-content > .image {
         display: block;
         max-width: 100%;
         margin: 0em auto !important;
@@ -31251,13 +31251,13 @@ select.ui.dropdown {
         padding: 0rem 0rem 1rem !important;
     }
 
-    .ui.modal > .content > .image > i.icon {
+    .ui.modal > .main-content > .image > i.icon {
         font-size: 5rem;
         text-align: center;
     }
 
     /*rtl:ignore*/
-    .ui.modal .content > .description {
+    .ui.modal .main-content > .description {
         display: block;
         width: 100% !important;
         margin: 0em !important;
@@ -31297,7 +31297,7 @@ select.ui.dropdown {
 }
 
 .ui.basic.modal > .header,
-.ui.basic.modal > .content,
+.ui.basic.modal > .main-content,
 .ui.basic.modal > .actions {
     background-color: transparent;
 }
@@ -31395,7 +31395,7 @@ select.ui.dropdown {
 
 /* Scrolling Content */
 
-.ui.modal .scrolling.content {
+.ui.modal .scrolling.main-content {
     max-height: calc(70vh);
     overflow: auto;
 }
@@ -31798,7 +31798,7 @@ a.ui.nag {
     font-weight: bold;
 }
 
-.ui.popup > .header + .content {
+.ui.popup > .header + .main-content {
     padding-top: 0.5em;
 }
 
@@ -33541,7 +33541,7 @@ a.ui.nag {
       Info
 ---------------*/
 
-.ui.search > .results .result .image + .content {
+.ui.search > .results .result .image + .main-content {
     margin: 0em 6em 0em 0em;
 }
 
@@ -33918,7 +33918,7 @@ a.ui.nag {
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 
-.ui.cube.shape .side > .content {
+.ui.cube.shape .side > .main-content {
     width: 100%;
     height: 100%;
     display: table;
@@ -33929,7 +33929,7 @@ a.ui.nag {
     user-select: text;
 }
 
-.ui.cube.shape .side > .content > div {
+.ui.cube.shape .side > .main-content > div {
     display: table-cell;
     vertical-align: middle;
     font-size: 2em;

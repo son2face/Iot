@@ -230,95 +230,95 @@
   z-index: @animatedZIndex;
 }
 
-.ui.animated.button .content {
+.ui.animated.button .main-content {
   will-change: transform, opacity;
 }
-.ui.animated.button .visible.content {
+.ui.animated.button .visible.main-content {
   position: relative;
   margin-right: @horizontalPadding;
 }
-.ui.animated.button .hidden.content {
+.ui.animated.button .hidden.main-content {
   position: absolute;
   width: 100%;
 }
 
 /* Horizontal */
-.ui.animated.button .visible.content,
-.ui.animated.button .hidden.content {
+.ui.animated.button .visible.main-content,
+.ui.animated.button .hidden.main-content {
   transition: right @animationDuration @animationEasing 0s;
 }
-.ui.animated.button .visible.content {
+.ui.animated.button .visible.main-content {
   left: auto;
   right: 0%;
 }
-.ui.animated.button .hidden.content {
+.ui.animated.button .hidden.main-content {
   top: 50%;
   left: auto;
   right: -100%;
   margin-top: -(@lineHeight / 2);
 }
-.ui.animated.button:focus .visible.content,
-.ui.animated.button:hover .visible.content {
+.ui.animated.button:focus .visible.main-content,
+.ui.animated.button:hover .visible.main-content {
   left: auto;
   right: 200%;
 }
-.ui.animated.button:focus .hidden.content,
-.ui.animated.button:hover .hidden.content {
+.ui.animated.button:focus .hidden.main-content,
+.ui.animated.button:hover .hidden.main-content {
   left: auto;
   right: 0%;
 }
 
 /* Vertical */
-.ui.vertical.animated.button .visible.content,
-.ui.vertical.animated.button .hidden.content {
+.ui.vertical.animated.button .visible.main-content,
+.ui.vertical.animated.button .hidden.main-content {
   transition: top @animationDuration @animationEasing, transform @animationDuration @animationEasing;
 }
-.ui.vertical.animated.button .visible.content {
+.ui.vertical.animated.button .visible.main-content {
   transform: translateY(0%);
   right: auto;
 }
-.ui.vertical.animated.button .hidden.content {
+.ui.vertical.animated.button .hidden.main-content {
   top: -50%;
   left: 0%;
   right: auto;
 }
-.ui.vertical.animated.button:focus .visible.content,
-.ui.vertical.animated.button:hover .visible.content {
+.ui.vertical.animated.button:focus .visible.main-content,
+.ui.vertical.animated.button:hover .visible.main-content {
   transform: translateY(200%);
   right: auto;
 }
-.ui.vertical.animated.button:focus .hidden.content,
-.ui.vertical.animated.button:hover .hidden.content {
+.ui.vertical.animated.button:focus .hidden.main-content,
+.ui.vertical.animated.button:hover .hidden.main-content {
   top: 50%;
   right: auto;
 }
 
 /* Fade */
-.ui.fade.animated.button .visible.content,
-.ui.fade.animated.button .hidden.content {
+.ui.fade.animated.button .visible.main-content,
+.ui.fade.animated.button .hidden.main-content {
   transition: opacity @animationDuration @animationEasing, transform @animationDuration @animationEasing;
 }
-.ui.fade.animated.button .visible.content {
+.ui.fade.animated.button .visible.main-content {
   left: auto;
   right: auto;
   opacity: 1;
   transform: scale(1);
 }
-.ui.fade.animated.button .hidden.content {
+.ui.fade.animated.button .hidden.main-content {
   opacity: 0;
   left: 0%;
   right: auto;
   transform: scale(@fadeScaleHigh);
 }
-.ui.fade.animated.button:focus .visible.content,
-.ui.fade.animated.button:hover .visible.content {
+.ui.fade.animated.button:focus .visible.main-content,
+.ui.fade.animated.button:hover .visible.main-content {
   left: auto;
   right: auto;
   opacity: 0;
   transform: scale(@fadeScaleLow);
 }
-.ui.fade.animated.button:focus .hidden.content,
-.ui.fade.animated.button:hover .hidden.content {
+.ui.fade.animated.button:focus .hidden.main-content,
+.ui.fade.animated.button:hover .hidden.main-content {
   left: 0%;
   right: auto;
   opacity: 1;

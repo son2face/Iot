@@ -101,11 +101,11 @@
      Content
 ---------------*/
 
-.ui.comments .comment > .content {
+.ui.comments .comment > .main-content {
   display: block;
 }
 /* If there is an avatar move content over */
-.ui.comments .comment > .avatar ~ .content {
+.ui.comments .comment > .avatar ~ .main-content {
   margin-left: @contentMargin;
 }
 
@@ -231,7 +231,7 @@
   transition: @minimalTransition;
   transition-delay: @minimalTransitionDelay;
 }
-.ui.minimal.comments .comment > .content:hover > .actions {
+.ui.minimal.comments .comment > .main-content:hover > .actions {
   opacity: 1;
 }
 

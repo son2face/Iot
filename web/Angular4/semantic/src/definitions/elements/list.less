@@ -145,24 +145,24 @@ ol.ui.list ol li,
 }
 
 /* Content */
-.ui.list .list > .item > .content,
-.ui.list > .item > .content {
+.ui.list .list > .item > .main-content,
+.ui.list > .item > .main-content {
   line-height: @contentLineHeight;
 }
-.ui.list .list > .item > .image + .content,
-.ui.list .list > .item > .icon + .content,
-.ui.list > .item > .image + .content,
-.ui.list > .item > .icon + .content {
+.ui.list .list > .item > .image + .main-content,
+.ui.list .list > .item > .icon + .main-content,
+.ui.list > .item > .image + .main-content,
+.ui.list > .item > .icon + .main-content {
   display: table-cell;
   padding: 0em 0em 0em @contentDistance;
   vertical-align: @contentVerticalAlign;
 }
-.ui.list .list > .item > img.image + .content,
-.ui.list > .item > img.image + .content {
+.ui.list .list > .item > img.image + .main-content,
+.ui.list > .item > img.image + .main-content {
   display: inline-block;
 }
-.ui.list .list > .item > .content > .list,
-.ui.list > .item > .content > .list {
+.ui.list .list > .item > .main-content > .list,
+.ui.list > .item > .main-content > .list {
   margin-left: 0em;
   padding-left: 0em;
 }
@@ -298,8 +298,8 @@ ol.ui.list ol li,
 .ui.horizontal.list .list > .item > .image,
 .ui.horizontal.list > .item > .icon,
 .ui.horizontal.list .list > .item > .icon,
-.ui.horizontal.list > .item > .content,
-.ui.horizontal.list .list > .item > .content {
+.ui.horizontal.list > .item > .main-content,
+.ui.horizontal.list .list > .item > .main-content {
   vertical-align: @horizontalVerticalAlign;
 }
 
@@ -316,7 +316,7 @@ ol.ui.list ol li,
   padding: 0em @horizontalIconDistance 0em 0em;
 }
 .ui.horizontal.list > .item > .icon,
-.ui.horizontal.list > .item > .icon + .content {
+.ui.horizontal.list > .item > .icon + .main-content {
   float: none;
   display: inline-block;
 }
@@ -396,17 +396,17 @@ ol.ui.list ol li,
 --------------------*/
 
 .ui.list[class*="top aligned"] .image,
-.ui.list[class*="top aligned"] .content,
+.ui.list[class*="top aligned"] .main-content,
 .ui.list [class*="top aligned"] {
   vertical-align: top !important;
 }
 .ui.list[class*="middle aligned"] .image,
-.ui.list[class*="middle aligned"] .content,
+.ui.list[class*="middle aligned"] .main-content,
 .ui.list [class*="middle aligned"] {
   vertical-align: middle !important;
 }
 .ui.list[class*="bottom aligned"] .image,
-.ui.list[class*="bottom aligned"] .content,
+.ui.list[class*="bottom aligned"] .main-content,
 .ui.list [class*="bottom aligned"] {
   vertical-align: bottom !important;
 }

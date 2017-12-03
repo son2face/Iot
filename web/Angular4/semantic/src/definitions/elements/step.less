@@ -150,12 +150,12 @@
   margin: 0em @iconDistance 0em 0em;
 }
 .ui.steps .step > .icon,
-.ui.steps .step > .icon ~ .content {
+.ui.steps .step > .icon ~ .main-content {
   display: block;
   flex: 0 1 auto;
   align-self: @iconAlign;
 }
-.ui.steps .step > .icon ~ .content {
+.ui.steps .step > .icon ~ .main-content {
   flex-grow: 1 0 auto;
 }
 
@@ -285,7 +285,7 @@
   }
 
   /* Content */
-  .ui.steps:not(.unstackable) .step .content {
+  .ui.steps:not(.unstackable) .step .main-content {
     text-align: center;
   }
 
@@ -419,7 +419,7 @@
 }
 
 /* Content */
-.ui[class*="tablet stackable"].steps .step .content {
+.ui[class*="tablet stackable"].steps .step .main-content {
   text-align: center;
 }
 

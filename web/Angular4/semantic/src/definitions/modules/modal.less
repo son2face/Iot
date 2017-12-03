@@ -104,7 +104,7 @@
      Content
 ---------------*/
 
-.ui.modal > .content {
+.ui.modal > .main-content {
   display: block;
   width: 100%;
   font-size: @contentFontSize;
@@ -112,13 +112,13 @@
   padding: @contentPadding;
   background: @contentBackground;
 }
-.ui.modal > .image.content {
+.ui.modal > .image.main-content {
   display: flex;
   flex-direction: row;
 }
 
 /* Image */
-.ui.modal > .content > .image {
+.ui.modal > .main-content > .image {
   display: block;
   flex: 0 1 auto;
   width: @imageWidth;
@@ -135,15 +135,15 @@
 }
 
 /* Description */
-.ui.modal > .content > .description {
+.ui.modal > .main-content > .description {
   display: block;
   flex: 1 0 auto;
   min-width: 0px;
   align-self: @descriptionVerticalAlign;
 }
 
-.ui.modal > .content > .icon + .description,
-.ui.modal > .content > .image + .description {
+.ui.modal > .main-content > .icon + .description,
+.ui.modal > .main-content > .image + .description {
   flex: 0 1 auto;
   min-width: @descriptionMinWidth;
   width: @descriptionWidth;
@@ -151,7 +151,7 @@
 }
 
 /*rtl:ignore*/
-.ui.modal > .content > .image > i.icon {
+.ui.modal > .main-content > .image > i.icon {
   margin: 0em;
   opacity: 1;
   width: auto;
@@ -228,7 +228,7 @@
     padding: @mobileHeaderPadding !important;
     padding-right: @closeHitbox !important;
   }
-  .ui.modal > .content {
+  .ui.modal > .main-content {
     display: block;
     padding: @mobileContentPadding !important;
   }
@@ -238,23 +238,23 @@
   }
 
   /*rtl:ignore*/
-  .ui.modal .image.content {
+  .ui.modal .image.main-content {
     flex-direction: column;
   }
-  .ui.modal .content > .image {
+  .ui.modal .main-content > .image {
     display: block;
     max-width: 100%;
     margin: 0em auto !important;
     text-align: center;
     padding: @mobileImagePadding !important;
   }
-  .ui.modal > .content > .image > i.icon {
+  .ui.modal > .main-content > .image > i.icon {
     font-size: @mobileImageIconSize;
     text-align: center;
   }
 
   /*rtl:ignore*/
-  .ui.modal .content > .description {
+  .ui.modal .main-content > .description {
     display: block;
     width: 100% !important;
     margin: 0em !important;
@@ -292,7 +292,7 @@
   color: @basicModalColor;
 }
 .ui.basic.modal > .header,
-.ui.basic.modal > .content,
+.ui.basic.modal > .main-content,
 .ui.basic.modal > .actions {
   background-color: transparent;
 }
@@ -385,7 +385,7 @@
 
 /* Scrolling Content */
 
-.ui.modal .scrolling.content {
+.ui.modal .scrolling.main-content {
   max-height: @scrollingContentMaxHeight;
   overflow: auto;
 }

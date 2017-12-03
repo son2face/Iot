@@ -110,7 +110,7 @@
      Content
 ---------------*/
 
-.ui.items > .item > .content {
+.ui.items > .item > .main-content {
   display: block;
   flex: 1 1 auto;
   background: @contentBackground;
@@ -121,7 +121,7 @@
   border: @contentBorder;
   border-radius: @contentBorderRadius;
 }
-.ui.items > .item > .content:after {
+.ui.items > .item > .main-content:after {
   display: block;
   content: ' ';
   height: 0px;
@@ -130,7 +130,7 @@
   visibility: hidden;
 }
 
-.ui.items > .item > .image + .content {
+.ui.items > .item > .image + .main-content {
   min-width: 0;
   width: @contentWidth;
   display: @contentDisplay;
@@ -139,7 +139,7 @@
   padding-left: @contentImageDistance;
 }
 
-.ui.items > .item > .content > .header {
+.ui.items > .item > .main-content > .header {
   display: inline-block;
   margin: @headerMargin;
   font-family: @headerFont;
@@ -147,7 +147,7 @@
   color: @headerColor;
 }
 /* Default Header Size */
-.ui.items > .item > .content > .header:not(.ui) {
+.ui.items > .item > .main-content > .header:not(.ui) {
   font-size: @headerFontSize;
 }
 
@@ -167,7 +167,7 @@
   Content Image
 ---------------*/
 
-.ui.items > .item .content img {
+.ui.items > .item .main-content img {
   align-self: @contentImageVerticalAlign;
   width: @contentImageWidth;
 }
@@ -183,7 +183,7 @@
    Description
 ---------------*/
 
-.ui.items > .item > .content > .description {
+.ui.items > .item > .main-content > .description {
   margin-top: @descriptionDistance;
   max-width: @descriptionMaxWidth;
   font-size: @descriptionFontSize;
@@ -195,10 +195,10 @@
     Paragraph
 ---------------*/
 
-.ui.items > .item > .content p {
+.ui.items > .item > .main-content p {
   margin: 0em 0em @paragraphDistance;
 }
-.ui.items > .item > .content p:last-child {
+.ui.items > .item > .main-content p:last-child {
   margin-bottom: 0em;
 }
 
@@ -229,19 +229,19 @@
 ---------------*/
 
 /* Generic */
-.ui.items > .item > .content a:not(.ui) {
+.ui.items > .item > .main-content a:not(.ui) {
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.items > .item > .content a:not(.ui):hover {
+.ui.items > .item > .main-content a:not(.ui):hover {
   color: @contentLinkHoverColor;
 }
 
 /* Header */
-.ui.items > .item > .content > a.header {
+.ui.items > .item > .main-content > a.header {
   color: @headerLinkColor;
 }
-.ui.items > .item > .content > a.header:hover {
+.ui.items > .item > .main-content > a.header:hover {
   color: @headerLinkHoverColor;
 }
 
@@ -262,32 +262,32 @@
 /*-----Star----- */
 
 /* Icon */
-.ui.items > .item > .content .favorite.icon {
+.ui.items > .item > .main-content .favorite.icon {
   cursor: pointer;
   opacity: @actionOpacity;
   transition: @actionTransition;
 }
-.ui.items > .item > .content .favorite.icon:hover {
+.ui.items > .item > .main-content .favorite.icon:hover {
   opacity: @actionHoverOpacity;
   color: @favoriteColor;
 }
-.ui.items > .item > .content .active.favorite.icon {
+.ui.items > .item > .main-content .active.favorite.icon {
   color: @favoriteActiveColor;
 }
 
 /*-----Like----- */
 
 /* Icon */
-.ui.items > .item > .content .like.icon {
+.ui.items > .item > .main-content .like.icon {
   cursor: pointer;
   opacity: @actionOpacity;
   transition: @actionTransition;
 }
-.ui.items > .item > .content .like.icon:hover {
+.ui.items > .item > .main-content .like.icon:hover {
   opacity: @actionHoverOpacity;
   color: @likeColor;
 }
-.ui.items > .item > .content .active.like.icon {
+.ui.items > .item > .main-content .active.like.icon {
   color: @likeActiveColor;
 }
 
@@ -344,7 +344,7 @@
   .ui.items > .item > .image:not(.ui) {
     width: @tabletImageWidth;
   }
-  .ui.items > .item > .image + .content {
+  .ui.items > .item > .image + .main-content {
     display: block;
     padding: 0em 0em 0em @tabletContentImageDistance;
   }
@@ -368,7 +368,7 @@
     width: @mobileImageWidth !important;
     max-height: @mobileImageMaxHeight !important;
   }
-  .ui.items:not(.unstackable) > .item > .image + .content {
+  .ui.items:not(.unstackable) > .item > .image + .main-content {
     display: block;
     padding: @mobileContentImageDistance 0em 0em;
   }
@@ -384,13 +384,13 @@
        Aligned
 --------------------*/
 
-.ui.items > .item > .image + [class*="top aligned"].content {
+.ui.items > .item > .image + [class*="top aligned"].main-content {
   align-self: flex-start;
 }
-.ui.items > .item > .image + [class*="middle aligned"].content {
+.ui.items > .item > .image + [class*="middle aligned"].main-content {
   align-self: center;
 }
-.ui.items > .item > .image + [class*="bottom aligned"].content {
+.ui.items > .item > .image + [class*="bottom aligned"].main-content {
   align-self: flex-end;
 }
 
@@ -446,8 +446,8 @@
   cursor: pointer;
 }
 
-.ui.items a.item:hover .content .header,
-.ui.link.items > .item:hover .content .header {
+.ui.items a.item:hover .main-content .header,
+.ui.link.items > .item:hover .main-content .header {
   color: @headerLinkHoverColor;
 }
 
